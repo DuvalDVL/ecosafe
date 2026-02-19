@@ -277,3 +277,115 @@ a { text-decoration: none; color: inherit; }
   .story-content { padding-top: 40px; padding-bottom: 10vh; }
   .story-step { min-height: 70vh; padding: 20px 0; }
 }
+
+/* =========================================
+   7. SECTION MARCHÉS (Bento Grid)
+   ========================================= */
+.markets-section {
+  padding: 100px 0;
+  background: var(--bg-white);
+}
+
+.section-header {
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  color: var(--text-main);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.text-center { text-align: center; }
+
+/* La Grille Bento */
+.bento-markets {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.market-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-light);
+  border-radius: 24px;
+  padding: 40px;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+/* L'effet Premium au survol */
+.market-card:hover {
+  transform: translateY(-8px);
+  background: #ffffff;
+  box-shadow: 0 20px 40px rgba(0, 70, 135, 0.08);
+  border-color: rgba(0, 70, 135, 0.1);
+}
+
+.market-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 70, 135, 0.05);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  color: var(--eco-blue);
+  transition: transform 0.3s;
+}
+
+.market-icon svg { width: 24px; height: 24px; }
+
+.market-card:hover .market-icon {
+  transform: scale(1.1);
+  background: var(--eco-blue);
+  color: #fff;
+}
+
+.market-content h3 {
+  font-size: 1.5rem;
+  color: var(--text-main);
+  margin-bottom: 15px;
+  letter-spacing: -0.01em;
+}
+
+.market-content p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 30px;
+  flex-grow: 1; /* Pousse le lien vers le bas */
+}
+
+.btn-link {
+  font-weight: 600;
+  color: var(--eco-blue);
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.market-card:hover .btn-link {
+  color: var(--eco-green);
+}
+
+/* --- MOBILE --- */
+@media (max-width: 992px) {
+  .bento-markets {
+    grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    gap: 20px;
+  }
+  .market-card { padding: 30px; }
+}
