@@ -216,6 +216,97 @@ description: "Eco Safe installe des grilles de filtration pour avaloirs. Conform
   </div>
 </section>
 
+<section class="partners-section">
+  <div class="container text-center">
+    <p class="step-label">Ils s'engagent avec nous</p>
+  </div>
+  <div class="marquee-wrapper">
+    <div class="marquee-track">
+      <div class="logo-item">Commune de Chamonix</div>
+      <div class="logo-item">Agglomération d'Annecy</div>
+      <div class="logo-item">Vinci Autoroutes</div>
+      <div class="logo-item">Stade de France</div>
+      <div class="logo-item">Suez Environnement</div>
+      <div class="logo-item">Commune de Chamonix</div>
+      <div class="logo-item">Agglomération d'Annecy</div>
+      <div class="logo-item">Vinci Autoroutes</div>
+      <div class="logo-item">Stade de France</div>
+      <div class="logo-item">Suez Environnement</div>
+    </div>
+  </div>
+</section>
+
+<section class="configurator-section" id="configurateur">
+  <div class="container">
+    <div class="config-card">
+      <div class="config-header text-center">
+        <h2>Évaluez votre <span class="text-green">Impact Environnemental</span></h2>
+        <p>Découvrez instantanément ce qu'Eco Safe peut accomplir pour votre site en une année.</p>
+      </div>
+
+      <div class="config-body">
+        <div class="slider-group">
+          <label for="avaloirs-slider">Combien d'avaloirs / grilles d'égout sur votre site ?</label>
+          <input type="range" id="avaloirs-slider" min="1" max="200" value="20" class="eco-slider">
+          <div class="slider-value"><span id="slider-output">20</span> avaloirs équipés</div>
+        </div>
+
+        <div class="config-results">
+          <div class="result-box">
+            <span class="result-number" id="res-dechets">300</span><span class="result-unit">kg</span>
+            <span class="result-label">De déchets bloqués / an</span>
+          </div>
+          <div class="result-box">
+            <span class="result-number" id="res-eau">4000</span><span class="result-unit">m³</span>
+            <span class="result-label">D'eau préservée / an</span>
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-top: 40px;">
+          <a href="#contact" class="btn btn-primary btn-large" id="btn-config-quote">Obtenir un devis pour 20 grilles</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <span class="step-label">Passez à l'action</span>
+        <h2>Une question ?<br>Un projet ?</h2>
+        <p>Notre équipe technique basée en Haute-Savoie vous répond sous 24h ouvrées avec une première estimation budgétaire.</p>
+        <ul class="contact-list">
+          <li><strong>Email :</strong> contact@eco-safe.fr</li>
+          <li><strong>Téléphone :</strong> 04 50 XX XX XX</li>
+          <li><strong>Intervention :</strong> Toute la France (Suisse & Europe frontalière)</li>
+        </ul>
+      </div>
+      
+      <div class="contact-form-wrapper">
+        <form action="#" method="POST" class="eco-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nom / Structure</label>
+              <input type="text" id="name" name="name" required placeholder="Ex: Mairie de...">
+            </div>
+            <div class="form-group">
+              <label for="email">Email professionnel</label>
+              <input type="email" id="email" name="email" required placeholder="contact@ville.fr">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Votre besoin (Nombre d'avaloirs estimés)</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Nous souhaitons équiper la zone industrielle..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Envoyer ma demande</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const counters = document.querySelectorAll('.counter');
@@ -293,4 +384,35 @@ description: "Eco Safe installe des grilles de filtration pour avaloirs. Conform
     // On applique l'observateur à chaque bloc de texte
     steps.forEach(step => observer.observe(step));
   });
+
+  // --- 3. Configurateur d'Impact Interactif ---
+    const slider = document.getElementById("avaloirs-slider");
+    const output = document.getElementById("slider-output");
+    const resDechets = document.getElementById("res-dechets");
+    const resEau = document.getElementById("res-eau");
+    const btnQuote = document.getElementById("btn-config-quote");
+
+    // Valeurs hypothétiques : 1 grille = 15kg déchets/an et 200m3 eau protégée
+    const kgPerGrille = 15;
+    const waterPerGrille = 200;
+
+    if (slider) {
+      slider.oninput = function() {
+        const val = this.value;
+        output.innerHTML = val;
+        
+        // Animation simple des chiffres
+        resDechets.innerHTML = (val * kgPerGrille).toLocaleString('fr-FR');
+        resEau.innerHTML = (val * waterPerGrille).toLocaleString('fr-FR');
+        
+        btnQuote.innerHTML = `Obtenir un devis pour ${val} grille${val > 1 ? 's' : ''}`;
+        
+        // Mise à jour de la couleur de fond du slider (effet de progression)
+        const progress = (this.value - this.min) / (this.max - this.min) * 100;
+        this.style.background = `linear-gradient(to right, var(--eco-green) ${progress}%, #e5e5e5 ${progress}%)`;
+      }
+      
+      // Initialisation au chargement
+      slider.oninput();
+    }
 </script>
