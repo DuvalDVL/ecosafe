@@ -497,3 +497,137 @@ a { text-decoration: none; color: inherit; }
   .services-grid { grid-template-columns: 1fr; }
   .service-box { padding: 30px; }
 }
+
+/* =========================================
+   9. PARTENAIRES (Marquee / Défilement infini)
+   ========================================= */
+.partners-section {
+  padding: 60px 0 80px;
+  background: var(--bg-white);
+  overflow: hidden;
+}
+
+.marquee-wrapper {
+  display: flex;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  margin-top: 30px;
+}
+
+/* Fondu sur les bords du carrousel */
+.marquee-wrapper::before, .marquee-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0; width: 100px; height: 100%;
+  z-index: 2;
+}
+.marquee-wrapper::before { left: 0; background: linear-gradient(to right, white, transparent); }
+.marquee-wrapper::after { right: 0; background: linear-gradient(to left, white, transparent); }
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  animation: marquee 30s linear infinite;
+  white-space: nowrap;
+}
+
+.logo-item {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #d1d1d6; /* Gris clair neutre */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Doit défiler exactement de la moitié car contenu dupliqué */
+}
+
+/* =========================================
+   10. CONFIGURATEUR D'IMPACT
+   ========================================= */
+.configurator-section {
+  padding: 100px 0;
+  background: var(--eco-blue);
+  color: #fff;
+}
+
+.config-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 60px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.config-header h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 15px; }
+.config-header p { color: #ccc; font-size: 1.1rem; margin-bottom: 40px; }
+
+/* Styling du Slider (Range Input) */
+.eco-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: #e5e5e5;
+  outline: none;
+  margin: 20px 0;
+}
+
+.eco-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--eco-green);
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(46, 204, 113, 0.5);
+  border: 4px solid #fff;
+}
+
+.slider-group { text-align: center; margin-bottom: 50px; }
+.slider-group label { display: block; font-size: 1.2rem; font-weight: 600; margin-bottom: 15px; }
+.slider-value { font-size: 1.1rem; color: #ccc; }
+.slider-value span { font-size: 2rem; font-weight: 800; color: #fff; margin-right: 5px; }
+
+.config-results { display: flex; justify-content: center; gap: 40px; }
+.result-box { text-align: center; }
+.result-number { font-size: 3.5rem; font-weight: 800; color: var(--eco-green); line-height: 1; }
+.result-unit { font-size: 1.5rem; color: #fff; margin-left: 5px; }
+.result-label { display: block; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; color: #ccc; margin-top: 10px; }
+
+/* =========================================
+   11. CONTACT
+   ========================================= */
+.contact-section { padding: 100px 0; background: var(--bg-light); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.contact-info h2 { font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--eco-blue); line-height: 1.1; margin-bottom: 20px; letter-spacing: -0.02em; }
+.contact-info p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; }
+.contact-list { list-style: none; }
+.contact-list li { margin-bottom: 15px; color: var(--text-main); font-size: 1.05rem; }
+.contact-list strong { color: var(--eco-blue); }
+
+.eco-form { background: var(--bg-white); padding: 40px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: var(--text-main); }
+.form-group input, .form-group textarea {
+  width: 100%; padding: 15px; border: 1px solid #e5e5e5; border-radius: 8px; font-family: inherit; font-size: 1rem; transition: border-color 0.3s;
+}
+.form-group input:focus, .form-group textarea:focus { border-color: var(--eco-blue); outline: none; }
+
+/* --- MOBILE --- */
+@media (max-width: 992px) {
+  .config-card { padding: 40px 20px; border-radius: 0; border-left: none; border-right: none; }
+  .config-results { flex-direction: column; gap: 30px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .eco-form { padding: 30px 20px; }
+}
