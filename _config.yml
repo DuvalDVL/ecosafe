@@ -1,4 +1,4 @@
 title: Eco Safe
 description: "La solution de filtration universelle pour avaloirs d'eaux pluviales. Capturez jusqu'à 95% des déchets urbains."
-url: "https://duvaldvl.github.io/ecosafe/" 
-baseurl: ""
+url: "https://duvaldvl.github.io" 
+baseurl: "/ecosafe" # C'est cette ligne qui manquait pour lier correctement le CSS
