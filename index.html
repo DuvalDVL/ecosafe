@@ -130,3 +130,58 @@ description: "Eco Safe installe des grilles de filtration pour avaloirs. Conform
     });
   });
 </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // --- 1. Animation des compteurs d'impact (Déjà présent) ---
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const inc = target / speed;
+        if (count < target) {
+          counter.innerText = target % 1 !== 0 ? (count + inc).toFixed(1) : Math.ceil(count + inc);
+          setTimeout(updateCount, 15);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCount();
+    });
+
+    // --- 2. Storytelling Sticky Images (Nouveau) ---
+    const steps = document.querySelectorAll('.story-step');
+    const images = document.querySelectorAll('.story-img');
+
+    // Configuration de l'observateur
+    const observerOptions = {
+      root: null,
+      // Se déclenche quand le bloc de texte atteint le milieu de l'écran
+      rootMargin: '-40% 0px -40% 0px', 
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // On récupère le numéro de l'étape
+          const stepIndex = entry.target.getAttribute('data-step');
+          
+          // On cache toutes les images
+          images.forEach(img => img.classList.remove('active'));
+          
+          // On affiche l'image qui correspond à l'étape
+          const activeImage = document.getElementById(`img-step-${stepIndex}`);
+          if(activeImage) {
+            activeImage.classList.add('active');
+          }
+        }
+      });
+    }, observerOptions);
+
+    // On applique l'observateur à chaque bloc de texte
+    steps.forEach(step => observer.observe(step));
+  });
+</script>
