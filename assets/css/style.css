@@ -127,6 +127,59 @@ a { text-decoration: none; color: inherit; }
 
 .hero-cta-group { display: flex; gap: 15px; justify-content: center; margin-bottom: 60px; }
 
+/* À ajouter dans style.css sous la section HERO */
+
+.hero-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.hero-wrapper {
+  flex: 1;
+  text-align: left; /* On passe le texte à gauche pour le style Apple */
+}
+
+.hero-visual {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.main-render {
+  width: 100%;
+  max-width: 600px; /* Taille max pour ne pas être trop grosse */
+  height: auto;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15)); /* Ombre portée douce pour l'effet 3D */
+}
+
+/* Ajustement des CTA pour l'alignement à gauche */
+.hero-cta-group {
+  justify-content: flex-start;
+}
+
+/* --- MOBILE --- */
+@media (max-width: 992px) {
+  .hero-layout {
+    flex-direction: column-reverse; /* L'image passe au-dessus du texte sur mobile */
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .hero-wrapper {
+    text-align: center;
+  }
+  
+  .hero-cta-group {
+    justify-content: center;
+  }
+  
+  .main-render {
+    max-width: 80%; /* Un peu plus petit sur mobile */
+  }
+}
+
 /* =========================================
    4. IMPACT DASHBOARD
    ========================================= */
