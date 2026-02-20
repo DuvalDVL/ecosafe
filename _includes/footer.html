@@ -7,6 +7,18 @@
         <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 300px;">
           La solution de filtration urbaine haute performance. Protégeons nos ressources en eau, une grille à la fois.
         </p>
+        
+        <div class="footer-social">
+          <a href="https://linkedin.com/company/ecosafesas/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Eco Safe">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61568725366308" target="_blank" rel="noopener noreferrer" aria-label="Facebook Eco Safe">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="https://www.instagram.com/eco_safe.fr" target="_blank" rel="noopener noreferrer" aria-label="Instagram Eco Safe">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+        </div>
       </div>
 
       <div class="footer-links">
@@ -55,6 +67,12 @@
 .footer-links a:hover { color: var(--eco-blue); }
 .footer-bottom { text-align: center; border-top: 1px solid #f0f0f0; padding-top: 30px; color: #a1a1a6; font-size: 0.85rem; }
 
+/* Réseaux Sociaux Footer */
+.footer-social { display: flex; gap: 15px; margin-top: 25px; }
+.footer-social a { color: var(--text-muted); transition: all 0.3s ease; display: inline-flex; }
+.footer-social svg { width: 22px; height: 22px; }
+.footer-social a:hover { color: var(--eco-blue); transform: translateY(-3px); }
+
 @media (max-width: 992px) {
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px 20px; }
   .footer-brand { grid-column: span 2; }
@@ -63,5 +81,6 @@
   .footer-grid { grid-template-columns: 1fr; text-align: center; }
   .footer-brand { grid-column: span 1; margin: 0 auto; }
   .footer-brand p { margin: 0 auto; }
+  .footer-social { justify-content: center; } /* Centre les icônes sur mobile */
 }
 </style>
