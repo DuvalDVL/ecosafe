@@ -149,7 +149,7 @@ a { text-decoration: none; color: inherit; }
 
 .main-render {
   width: 100%;
-  max-width: 600px; /* Taille max pour ne pas être trop grosse */
+  max-width: 800px; /* Taille max pour ne pas être trop grosse */
   height: auto;
   filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15)); /* Ombre portée douce pour l'effet 3D */
 }
