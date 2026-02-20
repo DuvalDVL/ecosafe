@@ -714,3 +714,150 @@ a { text-decoration: none; color: inherit; }
   color: var(--eco-blue);
   transform: translateY(-2px);
 }
+
+/* =========================================
+   12. PAGE TECHNOLOGIE / PRODUIT
+   ========================================= */
+.tech-hero {
+  padding-bottom: 40px;
+}
+
+/* Grille des Variantes */
+.variants-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.variant-card {
+  background: var(--bg-white);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.variant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 70, 135, 0.08);
+}
+
+/* Mise en avant de la Variante 2 (Mégots) */
+.featured-variant {
+  border: 2px solid var(--eco-green);
+  box-shadow: 0 15px 40px rgba(46, 204, 113, 0.15);
+  position: relative;
+  transform: scale(1.02);
+}
+.featured-variant:hover { transform: scale(1.02) translateY(-5px); }
+
+.variant-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+.variant-header h3 {
+  font-size: 1.6rem;
+  color: var(--eco-blue);
+  margin-bottom: 10px;
+}
+
+.badge-variant {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 800;
+  background: var(--bg-light);
+  color: var(--text-muted);
+  padding: 5px 12px;
+  border-radius: 50px;
+}
+.badge-variant.highlight { background: rgba(46, 204, 113, 0.1); color: var(--eco-green); }
+
+.variant-desc {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 25px;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.variant-specs { list-style: none; padding: 0; }
+.variant-specs li {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+  color: var(--text-main);
+}
+.variant-specs li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--eco-green);
+  font-weight: bold;
+}
+
+/* Grille d'Installation (4 étapes) */
+.install-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.install-step { text-align: center; }
+
+.install-img-wrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  aspect-ratio: 4/3; /* Force un format uniforme pour les photos */
+}
+
+.install-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.install-step:hover .install-img-wrapper img { transform: scale(1.05); }
+
+.step-number {
+  position: absolute;
+  top: 15px; left: 15px;
+  width: 35px; height: 35px;
+  background: var(--eco-blue);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center; justify-content: center;
+  font-weight: 800; font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0, 70, 135, 0.3);
+}
+
+.install-step h4 { font-size: 1.2rem; color: var(--text-main); margin-bottom: 10px; }
+.install-step p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; }
+
+/* --- MOBILE --- */
+@media (max-width: 992px) {
+  .variants-grid { grid-template-columns: 1fr; }
+  .featured-variant { transform: none; }
+  .featured-variant:hover { transform: translateY(-5px); }
+  
+  .install-grid { grid-template-columns: 1fr 1fr; gap: 20px; } /* 2 colonnes sur tablette */
+}
+
+@media (max-width: 600px) {
+  .install-grid { grid-template-columns: 1fr; } /* 1 colonne sur smartphone */
+}
