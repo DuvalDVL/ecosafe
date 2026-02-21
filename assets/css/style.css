@@ -722,6 +722,11 @@ a { text-decoration: none; color: inherit; }
   padding-bottom: 40px;
 }
 
+/* Espacement de la section (Règle le problème de la bordure collée en bas) */
+.variants-section {
+  padding-bottom: 100px;
+}
+
 /* Grille des Variantes */
 .variants-grid {
   display: grid;
@@ -732,28 +737,27 @@ a { text-decoration: none; color: inherit; }
 
 .variant-card {
   background: var(--bg-white);
-  border: 1px solid rgba(0,0,0,0.05);
+  /* Bordure neutre de 2px pour toutes les cartes (évite le saut d'épaisseur au survol) */
+  border: 2px solid rgba(0,0,0,0.04);
   border-radius: 20px;
   padding: 40px 30px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease; /* "all" permet d'animer aussi la couleur de la bordure */
   display: flex;
   flex-direction: column;
 }
 
+/* Au survol : la bordure devient verte et la carte se soulève (identique pour les 3) */
 .variant-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 70, 135, 0.08);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(46, 204, 113, 0.12);
+  border-color: var(--eco-green);
 }
 
-/* Mise en avant de la Variante 2 (Mégots) */
+/* On neutralise l'ancien comportement "bizarre" de la carte centrale pour l'aligner parfaitement */
 .featured-variant {
-  border: 2px solid var(--eco-green);
-  box-shadow: 0 15px 40px rgba(46, 204, 113, 0.15);
-  position: relative;
-  transform: scale(1.02);
+  /* On laisse cette classe vide, elle hérite du style parfait de .variant-card */
 }
-.featured-variant:hover { transform: scale(1.02) translateY(-5px); }
 
 .variant-header {
   display: flex;
@@ -852,8 +856,6 @@ a { text-decoration: none; color: inherit; }
 /* --- MOBILE --- */
 @media (max-width: 992px) {
   .variants-grid { grid-template-columns: 1fr; }
-  .featured-variant { transform: none; }
-  .featured-variant:hover { transform: translateY(-5px); }
   
   .install-grid { grid-template-columns: 1fr 1fr; gap: 20px; } /* 2 colonnes sur tablette */
 }
