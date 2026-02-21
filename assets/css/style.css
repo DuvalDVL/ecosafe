@@ -954,3 +954,13 @@ a { text-decoration: none; color: inherit; }
     grid-template-columns: 1fr;
   }
 }
+
+.justify-center {
+  justify-content: center;
+}
+
+@media (max-width: 992px) {
+  .layout-50-50 {
+    flex-direction: column;
+  }
+}
