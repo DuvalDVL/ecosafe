@@ -1,0 +1,84 @@
+---
+layout: default
+title: Page introuvable (404)
+permalink: /404.html
+sitemap: false
+---
+
+<section class="error-section text-center">
+  <div class="container">
+    <div class="error-content">
+      
+      <h1 class="error-code">404</h1>
+      
+      <h2 class="error-title">Oups ! Cette page a été filtrée.</h2>
+      
+      <p class="error-desc">
+        Comme 95% des déchets urbains, le lien que vous avez suivi n'a pas réussi à passer au travers de nos grilles de rétention. L'océan est sauf, mais votre page est introuvable.
+      </p>
+
+      <div class="error-actions">
+        <a href="{{ site.baseurl }}/" class="btn btn-primary">Retour à la surface (Accueil)</a>
+        <a href="{{ site.baseurl }}/contact/" class="btn btn-glass">Signaler un problème</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+/* CSS spécifique pour la page 404 (pour éviter d'alourdir le style.css principal) */
+.error-section {
+  padding: 120px 20px;
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-white);
+  background-image: radial-gradient(circle at center, rgba(0, 70, 135, 0.03) 0%, transparent 70%);
+}
+
+.error-content {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.error-code {
+  font-size: clamp(6rem, 15vw, 12rem);
+  font-weight: 800;
+  color: var(--eco-blue);
+  line-height: 1;
+  margin-bottom: 10px;
+  letter-spacing: -5px;
+  text-shadow: 0 10px 30px rgba(0, 70, 135, 0.1);
+}
+
+.error-title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--text-main);
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.error-desc {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.error-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .error-actions {
+    flex-direction: column;
+  }
+  .error-actions .btn {
+    width: 100%;
+  }
+}
+</style>
