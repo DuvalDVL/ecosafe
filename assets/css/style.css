@@ -31,52 +31,51 @@ body {
 a { text-decoration: none; color: inherit; }
 
 /* =========================================
-   HEADER & LOGO (Correction Alignement, Taille & Débordement précis)
+   HEADER & LOGO (Correction Flexbox & Débordement)
    ========================================= */
 
-/* 1. On fixe la hauteur de la barre blanche (Navbar) */
 .site-header {
   background: var(--bg-white);
-  height: 80px; /* Hauteur standard et propre pour la navbar */
-  position: relative; /* Nécessaire pour le positionnement absolu du logo */
-  z-index: 999; /* S'assure que la navbar est au-dessus du reste du site */
+  height: 80px; 
+  position: relative; 
+  z-index: 999; 
   border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
-/* 2. Le conteneur Flexbox qui aligne tous les éléments verticalement */
 .header-flex {
   display: flex;
-  align-items: center; /* Centre verticalement tous les éléments (logo, menu, bouton) */
+  align-items: center; 
   justify-content: space-between;
   height: 100%;
+  gap: 20px; /* Ajoute un peu d'air entre le logo, le menu et le bouton */
 }
 
-/* 3. Le conteneur du logo sert de "cale" pour le menu */
+/* --- LE LOGO --- */
 .site-header .logo {
-  display: flex;
-  align-items: center;
+  display: block;
   position: relative;
-  width: 150px; /* Largeur de cale pour le logo image */
+  width: 200px; /* On élargit la zone pour que le texte du menu ne lui rentre pas dedans */
   height: 100%;
+  flex-shrink: 0; /* INTERDIT au navigateur d'écraser cette zone */
 }
 
-/* 4. La magie : Positionnement précis du logo pour que SEUL le vert dépasse */
 .site-header .logo-img {
   position: absolute;
-  top: 0; /* Aligne le HAUT du logo avec le haut de la navbar blanche. Ne dépasse pas en haut. */
+  /* On remonte le logo dans le négatif pour compenser les marges transparentes de ton image */
+  top: -20px; 
   left: 0;
-  height: 115px; /* TAILLE DU LOGO : très grand, il va déborder de 35px vers le bas (115-80). */
+  height: 140px; /* Plus grand ! */
   width: auto;
   max-width: none;
-  z-index: 1000; /* Le force à passer par-dessus l'image de fond */
+  z-index: 1000; 
 }
 
-/* 5. Correction de la mise en forme et de l'alignement des liens du menu central */
+/* --- LE MENU CENTRAL --- */
 .main-nav ul {
   display: flex;
   align-items: center;
   gap: 35px;
-  margin: 0 !important; /* Détruit les marges par défaut qui poussaient le texte vers le bas */
+  margin: 0 !important; 
   padding: 0;
 }
 
@@ -86,10 +85,11 @@ a { text-decoration: none; color: inherit; }
 }
 
 .main-nav a {
-  color: var(--text-main); /* Remet la couleur principale du texte */
-  font-weight: 600; /* Remet le poids de la police */
+  color: var(--text-main); 
+  font-weight: 600; 
   text-decoration: none;
   font-size: 0.95rem;
+  white-space: nowrap; /* EMPÊCHE ABSOLUMENT "La Solution" de passer sur 2 lignes */
   transition: color 0.3s ease;
 }
 
@@ -97,22 +97,23 @@ a { text-decoration: none; color: inherit; }
   color: var(--eco-blue);
 }
 
-/* 6. Alignement parfait de la zone droite (réseaux + bouton) */
+/* --- LES ACTIONS (Bouton + Réseaux) --- */
 .header-actions {
   display: flex;
   align-items: center;
   gap: 20px;
+  flex-shrink: 0; /* INTERDIT au navigateur d'écraser le bouton */
 }
 
-/* Style spécifique pour les icônes réseaux sociaux (desktop only) */
 .header-social {
   display: flex;
   gap: 12px;
 }
 
 .header-social a {
-  color: #b1b1b6; /* Couleur grise des icônes réseaux */
+  color: #b1b1b6; 
   transition: color 0.3s ease;
+  display: flex;
 }
 
 .header-social a:hover {
@@ -124,21 +125,20 @@ a { text-decoration: none; color: inherit; }
   height: 18px;
 }
 
-/* 7. Correction du style du bouton "Étude gratuite" (bouton small) */
 .btn.btn-small {
-  padding: 8px 18px;
-  font-size: 0.9rem;
+  padding: 10px 24px;
+  font-size: 0.95rem;
   font-weight: 700;
-  background: var(--eco-blue); /* Remet la couleur bleue du bouton */
-  color: #fff; /* Remet le texte en blanc */
+  background: var(--eco-blue); 
+  color: #fff !important; 
   border-radius: 50px;
   border: 2px solid var(--eco-blue);
+  white-space: nowrap; /* Empêche le texte de se plier et garde la belle forme du bouton */
   transition: background 0.3s ease, color 0.3s ease;
 }
 
 .btn.btn-small:hover {
-  background: #003060; /* Un bleu plus sombre au survol */
-  color: #fff;
+  background: #003060; 
 }
 
 /* =========================================
