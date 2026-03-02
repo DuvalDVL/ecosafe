@@ -31,8 +31,13 @@ body {
 a { text-decoration: none; color: inherit; }
 
 /* =========================================
-   HEADER & LOGO (Correction Flexbox & Débordement)
+   HEADER & LOGO (Version Finale & Nettoyée)
    ========================================= */
+
+/* 1. On tue définitivement le scroll horizontal */
+html, body {
+  overflow-x: hidden;
+}
 
 .site-header {
   background: var(--bg-white);
@@ -47,24 +52,26 @@ a { text-decoration: none; color: inherit; }
   align-items: center; 
   justify-content: space-between;
   height: 100%;
-  gap: 20px; /* Ajoute un peu d'air entre le logo, le menu et le bouton */
+  gap: 20px;
 }
 
 /* --- LE LOGO --- */
+.site-header .logo {
+  display: block;
+  position: relative;
+  width: 220px; /* Cale invisible pour repousser le menu et laisser de la place au logo */
+  height: 100%;
+  flex-shrink: 0; 
+}
+
 .site-header .logo-img {
   position: absolute;
-  top: -38px; /* <-- On le remonte encore plus (avant c'était -20px) */
-  left: 0;
-  height: 140px; 
+  top: -65px; /* On remonte encore plus pour cacher le bleu dans la barre blanche */
+  left: -20px; /* On annule la marge transparente de l'image */
+  height: 180px; 
   width: auto;
   max-width: none;
   z-index: 1000; 
-}
-
-/* --- LES RÉSEAUX SOCIAUX --- */
-.header-social {
-  display: flex;
-  gap: 6px; /* <-- Espacement très réduit (avant c'était 12px) */
 }
 
 /* --- LE MENU CENTRAL --- */
@@ -86,7 +93,7 @@ a { text-decoration: none; color: inherit; }
   font-weight: 600; 
   text-decoration: none;
   font-size: 0.95rem;
-  white-space: nowrap; /* EMPÊCHE ABSOLUMENT "La Solution" de passer sur 2 lignes */
+  white-space: nowrap; /* Empêche de passer sur 2 lignes */
   transition: color 0.3s ease;
 }
 
@@ -99,12 +106,13 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   align-items: center;
   gap: 20px;
-  flex-shrink: 0; /* INTERDIT au navigateur d'écraser le bouton */
+  flex-shrink: 0; 
 }
 
+/* --- LES RÉSEAUX SOCIAUX --- */
 .header-social {
   display: flex;
-  gap: 12px;
+  gap: 5px; /* Espacement très réduit */
 }
 
 .header-social a {
@@ -122,6 +130,7 @@ a { text-decoration: none; color: inherit; }
   height: 18px;
 }
 
+/* --- BOUTON CTA --- */
 .btn.btn-small {
   padding: 10px 24px;
   font-size: 0.95rem;
@@ -130,41 +139,12 @@ a { text-decoration: none; color: inherit; }
   color: #fff !important; 
   border-radius: 50px;
   border: 2px solid var(--eco-blue);
-  white-space: nowrap; /* Empêche le texte de se plier et garde la belle forme du bouton */
+  white-space: nowrap; /* Garde la forme de pilule */
   transition: background 0.3s ease, color 0.3s ease;
 }
 
 .btn.btn-small:hover {
   background: #003060; 
-}
-
-/* =========================================
-   CORRECTIONS FINALES NAVBAR & SCROLL
-   ========================================= */
-
-/* 1. On tue définitivement le scroll horizontal créé par les boîtes invisibles */
-html, body {
-  overflow-x: hidden;
-}
-
-/* 2. Le Logo : On le remonte fortement et on le grossit */
-.site-header .logo-img {
-  position: absolute;
-  /* On le remonte de 55px pour que l'espace transparent et le haut du bleu soient avalés par la zone blanche */
-  top: -55px; 
-  /* On le décale un peu à gauche pour annuler sa marge transparente gauche */
-  left: -20px; 
-  /* On augmente la taille globale pour que la flèche verte descende sous la barre de 80px */
-  height: 180px; 
-  width: auto;
-  max-width: none;
-  z-index: 1000; 
-}
-
-/* 3. On resserre les réseaux sociaux au maximum */
-.header-social {
-  display: flex;
-  gap: 5px; /* Espace réduit au strict minimum entre LinkedIn, FB et Insta */
 }
 
 /* =========================================
