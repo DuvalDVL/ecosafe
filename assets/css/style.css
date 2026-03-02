@@ -91,7 +91,7 @@ html, body {
 .main-nav ul {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 15px; /* <-- ESPACE RÉDUIT (c'était à 30px avant) */
   margin: 0; 
   padding: 0; 
 }
@@ -130,7 +130,7 @@ html, body {
 .header-social {
   display: flex;
   align-items: center;
-  gap: 2px; /* <-- ICÔNES TRÈS COLLÉES LES UNES AUX AUTRES (avant 6px) */
+  gap: 0px; /* <-- COLLÉS AU MAXIMUM (zéro espace entre les boîtes) */
 }
 
 .header-social a {
