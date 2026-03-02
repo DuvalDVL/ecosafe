@@ -139,6 +139,35 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* =========================================
+   CORRECTIONS FINALES NAVBAR & SCROLL
+   ========================================= */
+
+/* 1. On tue définitivement le scroll horizontal créé par les boîtes invisibles */
+html, body {
+  overflow-x: hidden;
+}
+
+/* 2. Le Logo : On le remonte fortement et on le grossit */
+.site-header .logo-img {
+  position: absolute;
+  /* On le remonte de 55px pour que l'espace transparent et le haut du bleu soient avalés par la zone blanche */
+  top: -55px; 
+  /* On le décale un peu à gauche pour annuler sa marge transparente gauche */
+  left: -20px; 
+  /* On augmente la taille globale pour que la flèche verte descende sous la barre de 80px */
+  height: 180px; 
+  width: auto;
+  max-width: none;
+  z-index: 1000; 
+}
+
+/* 3. On resserre les réseaux sociaux au maximum */
+.header-social {
+  display: flex;
+  gap: 5px; /* Espace réduit au strict minimum entre LinkedIn, FB et Insta */
+}
+
+/* =========================================
    3. HERO SECTION
    ========================================= */
 .hero-eco {
