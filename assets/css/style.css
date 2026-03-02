@@ -31,11 +31,56 @@ body {
 a { text-decoration: none; color: inherit; }
 
 /* =========================================
+   2. BOUTONS GLOBAUX
+   ========================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+  line-height: 1;
+}
+
+/* Bouton principal (Bleu) */
+.btn-primary {
+  background: var(--eco-blue);
+  color: #ffffff !important;
+  border-color: var(--eco-blue);
+}
+
+.btn-primary:hover {
+  background: #003060;
+  border-color: #003060;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 70, 135, 0.15);
+}
+
+/* Bouton secondaire (Blanc/Gris clair, utilisé sur fond sombre) */
+.btn-light, .btn-secondary {
+  background: var(--bg-white);
+  color: var(--text-main) !important;
+  border-color: #e5e5e5;
+}
+
+.btn-light:hover, .btn-secondary:hover {
+  border-color: var(--eco-blue);
+  color: var(--eco-blue) !important;
+  transform: translateY(-2px);
+}
+
+/* =========================================
    HEADER & LOGO (Correction 10 - Destruction des marges)
    ========================================= */
 
-html, body {
-  overflow-x: hidden;
+body {
+  overflow-x: clip; /* 'clip' empêche le débordement horizontal SANS casser l'effet sticky ! */
 }
 
 .site-header {
