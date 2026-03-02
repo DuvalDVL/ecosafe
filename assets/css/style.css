@@ -73,6 +73,27 @@ a { text-decoration: none; color: inherit; }
 
 .btn-small { padding: 10px 20px; font-size: 0.9rem; }
 
+/* Tailles et alignement du nouveau logo image */
+.site-header .logo-img {
+  height: 55px; /* Tu peux ajuster cette valeur (ex: 45px ou 65px) selon tes goûts */
+  width: auto;
+  display: block;
+}
+
+/* On s'assure que le conteneur du logo est bien centré */
+.site-header .logo {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+/* Force l'alignement vertical de tous les éléments du header */
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /* =========================================
    3. HERO SECTION
    ========================================= */
