@@ -31,69 +31,64 @@ body {
 a { text-decoration: none; color: inherit; }
 
 /* =========================================
-   2. HEADER & BOUTONS
+   HEADER & LOGO (Correction Alignement & Débordement)
    ========================================= */
+
+/* 1. On fixe la hauteur de la barre de navigation */
 .site-header {
-  height: var(--nav-height);
-  display: flex;
-  align-items: center;
+  background: var(--bg-white);
+  height: 80px; /* Hauteur standard et élégante pour la navbar */
+  position: relative;
+  z-index: 999; /* S'assure que la navbar est au-dessus du reste du site */
   border-bottom: 1px solid rgba(0,0,0,0.05);
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
 
-.header-flex { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-.logo { font-size: 1.5rem; font-weight: 800; color: var(--eco-blue); letter-spacing: -1px; }
-.logo strong { color: var(--eco-green); }
-
-.main-nav ul { display: flex; gap: 30px; list-style: none; }
-.main-nav a { font-size: 0.9rem; font-weight: 600; color: var(--text-main); transition: color 0.2s; }
-.main-nav a:hover { color: var(--eco-blue); }
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 28px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.btn-primary { background: var(--eco-blue); color: #fff; }
-.btn-primary:hover { background: var(--eco-blue-hover); transform: translateY(-2px); }
-
-.btn-glass { background: var(--bg-light); color: var(--text-main); border: 1px solid #e5e5e5; }
-.btn-glass:hover { background: #e5e5e5; }
-
-.btn-small { padding: 10px 20px; font-size: 0.9rem; }
-
-/* Tailles et alignement du nouveau logo image */
-.site-header .logo-img {
-  height: 55px; /* Tu peux ajuster cette valeur (ex: 45px ou 65px) selon tes goûts */
-  width: auto;
-  display: block;
-}
-
-/* On s'assure que le conteneur du logo est bien centré */
-.site-header .logo {
-  display: flex;
-  align-items: center;
-  padding: 0;
-}
-
-/* Force l'alignement vertical de tous les éléments du header */
+/* 2. On centre parfaitement tous les éléments verticalement */
 .header-flex {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100%;
 }
 
+/* 3. Le conteneur du logo sert de "cale" pour ne pas que le menu glisse à gauche */
+.site-header .logo {
+  position: relative;
+  width: 140px; /* Modifie cette largeur si ton logo vient chevaucher le texte du menu */
+  height: 100%;
+}
+
+/* 4. La magie : Le logo est grand, calé en haut, et déborde vers le bas */
+.site-header .logo-img {
+  position: absolute;
+  top: 5px; /* Empêche le logo de toucher le haut du navigateur */
+  left: 0;
+  height: 140px; /* TAILLE DU LOGO : très grand, il va déborder sur la Hero Section */
+  width: auto;
+  max-width: none;
+  z-index: 1000; /* Le force à passer par-dessus l'image de fond */
+}
+
+/* 5. Réparation de l'alignement des liens du menu central */
+.main-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  margin: 0 !important; /* Détruit les marges par défaut qui poussent le texte vers le bas */
+  padding: 0;
+}
+
+.main-nav li {
+  list-style: none;
+  margin: 0;
+}
+
+/* 6. Alignement parfait de la zone droite (réseaux + bouton) */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 /* =========================================
    3. HERO SECTION
    ========================================= */
