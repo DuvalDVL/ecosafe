@@ -31,7 +31,7 @@ body {
 a { text-decoration: none; color: inherit; }
 
 /* =========================================
-   HEADER & LOGO (Élimination des conflits)
+   HEADER & LOGO (Correction 9 - Réglages de Précision)
    ========================================= */
 
 html, body {
@@ -72,6 +72,7 @@ html, body {
 
 .site-header .logo-img {
   position: absolute;
+  /* L'image du logo NE BOUGE PAS (top maintenu à -25px) */
   top: -25px; 
   left: 0;
   height: 110px; 
@@ -85,12 +86,14 @@ html, body {
   display: flex;
   align-items: center;
   height: 100%;
+  /* AJOUT : Remonte légèrement les liens uniquement d'un bloc (-3px) */
+  transform: translateY(-3px); 
 }
 
 .main-nav ul {
   display: flex;
   align-items: center;
-  gap: 15px !important; /* <-- FORCE LE RAPPROCHEMENT DES LIENS */
+  gap: 15px !important; 
   margin: 0; 
   padding: 0; 
 }
@@ -119,18 +122,21 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 10px !important; /* <-- FORCE L'ÉCART RÉDUIT AVEC LE BOUTON */
+  gap: 10px !important; 
   flex-shrink: 0; 
   height: 100%; 
+  /* AJOUT : Remonte aussi le bouton et les icônes pour l'alignement vertical */
+  transform: translateY(-3px); 
 }
 
 /* --- LES RÉSEAUX SOCIAUX --- */
 .header-social {
   display: flex;
   align-items: center;
-  gap: 0px !important; /* <-- FORCE LES ICÔNES À SE COLLER */
-  border: none !important; /* <-- DÉTRUIT LA BARRE GRISE FANTÔME */
-  padding: 0 !important; /* <-- DÉTRUIT L'ESPACEMENT FANTÔME */
+  /* FORCE les icônes à se coller les unes aux autres */
+  gap: 0px !important; 
+  border: none !important; 
+  padding: 0 !important; 
   margin: 0 !important;
 }
 
@@ -141,6 +147,9 @@ html, body {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  /* Élimine toute marge interne éventuelle qui écarterait les icônes */
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .header-social a:hover {
