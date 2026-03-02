@@ -31,7 +31,7 @@ body {
 a { text-decoration: none; color: inherit; }
 
 /* =========================================
-   2. BOUTONS GLOBAUX
+   2. BOUTONS GLOBAUX (Version Blindée)
    ========================================= */
 .btn {
   display: inline-flex;
@@ -41,38 +41,36 @@ a { text-decoration: none; color: inherit; }
   font-size: 1rem;
   font-weight: 700;
   border-radius: 50px;
-  text-decoration: none;
+  text-decoration: none !important;
   transition: all 0.3s ease;
   cursor: pointer;
-  border: 2px solid transparent;
   line-height: 1;
+  text-align: center;
+  /* STYLE PAR DÉFAUT : Bouton blanc avec bordure (règle le problème des boutons invisibles) */
+  background: var(--bg-white);
+  color: var(--text-main) !important;
+  border: 2px solid #e5e5e5;
 }
 
-/* Bouton principal (Bleu) */
-.btn-primary {
+.btn:hover {
+  border-color: var(--eco-blue);
+  color: var(--eco-blue) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+/* Surcharge pour le bouton principal (Bleu) */
+.btn.btn-primary {
   background: var(--eco-blue);
   color: #ffffff !important;
   border-color: var(--eco-blue);
 }
 
-.btn-primary:hover {
+.btn.btn-primary:hover {
   background: #003060;
   border-color: #003060;
-  transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0, 70, 135, 0.15);
-}
-
-/* Bouton secondaire (Blanc/Gris clair, utilisé sur fond sombre) */
-.btn-light, .btn-secondary {
-  background: var(--bg-white);
-  color: var(--text-main) !important;
-  border-color: #e5e5e5;
-}
-
-.btn-light:hover, .btn-secondary:hover {
-  border-color: var(--eco-blue);
-  color: var(--eco-blue) !important;
-  transform: translateY(-2px);
+  color: #ffffff !important;
 }
 
 /* =========================================
