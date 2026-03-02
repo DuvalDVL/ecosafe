@@ -31,14 +31,13 @@ body {
 a { text-decoration: none; color: inherit; }
 
 /* =========================================
-   HEADER & LOGO (Correction 5 - Box-Sizing & SVG)
+   HEADER & LOGO (Correction 7 - Millimétrage Final)
    ========================================= */
 
 html, body {
   overflow-x: hidden;
 }
 
-/* 1. La solution pour que le bouton ne soit plus coupé */
 .site-header {
   background: var(--bg-white);
   height: 90px; 
@@ -46,7 +45,7 @@ html, body {
   z-index: 999; 
   border-bottom: 1px solid rgba(0,0,0,0.05);
   width: 100%; 
-  box-sizing: border-box; /* <-- EMPÊCHE la barre de déborder de l'écran */
+  box-sizing: border-box;
 }
 
 .header-flex {
@@ -54,7 +53,7 @@ html, body {
   align-items: center; 
   justify-content: space-between;
   height: 100%;
-  padding: 0 40px; /* Marges intérieures pour décoller le bouton */
+  padding: 0 40px; 
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
@@ -63,25 +62,32 @@ html, body {
 
 /* --- LE LOGO --- */
 .site-header .logo {
-  display: block;
+  display: flex;
+  align-items: center;
   position: relative;
-  width: 180px; 
+  width: 160px; /* Un poil réduit pour s'adapter à la nouvelle taille du logo */
   height: 100%;
   flex-shrink: 0; 
 }
 
 .site-header .logo-img {
   position: absolute;
-  /* On le redescend pour centrer le texte "ECO SAFE". (avant c'était -45px) */
-  top: -20px; 
+  top: -38px; /* <-- LOGO REMONTÉ */
   left: 0;
-  height: 150px; 
+  height: 115px; /* <-- LOGO PLUS PETIT (avant 130px) */
   width: auto;
   max-width: none;
   z-index: 1000; 
 }
 
 /* --- LE MENU CENTRAL --- */
+.main-nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-top: -6px; /* <-- REMONTE TOUT LE MENU d'un cran vers le haut */
+}
+
 .main-nav ul {
   display: flex;
   align-items: center;
@@ -102,6 +108,7 @@ html, body {
   font-size: 0.95rem;
   white-space: nowrap; 
   transition: color 0.3s ease;
+  display: block;
 }
 
 .main-nav a:hover {
@@ -112,15 +119,18 @@ html, body {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 30px; 
+  justify-content: flex-end;
+  gap: 12px; /* <-- ESPACE RÉDUIT entre les réseaux sociaux et le bouton (avant 20px) */
   flex-shrink: 0; 
+  height: 100%; 
+  margin-top: -6px; /* <-- REMONTE LE BOUTON ET LES ICÔNES au même niveau que le menu */
 }
 
 /* --- LES RÉSEAUX SOCIAUX --- */
 .header-social {
   display: flex;
   align-items: center;
-  gap: 15px; 
+  gap: 2px; /* <-- ICÔNES TRÈS COLLÉES LES UNES AUX AUTRES (avant 6px) */
 }
 
 .header-social a {
@@ -136,15 +146,17 @@ html, body {
   color: var(--eco-blue);
 }
 
-/* On donne directement une taille fixe au SVG pour ne plus qu'il s'écrase */
 .header-social svg {
-  width: 22px; 
-  height: 22px; 
+  width: 20px; 
+  height: 20px; 
   display: block;
 }
 
 /* --- BOUTON CTA --- */
 .btn.btn-small {
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center;
   padding: 10px 24px;
   font-size: 0.95rem;
   font-weight: 700;
@@ -155,6 +167,8 @@ html, body {
   white-space: nowrap; 
   transition: background 0.3s ease, color 0.3s ease;
   text-decoration: none;
+  margin: 0;
+  line-height: 1; 
 }
 
 .btn.btn-small:hover {
