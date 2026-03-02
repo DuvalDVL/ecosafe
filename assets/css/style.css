@@ -31,13 +31,14 @@ body {
 a { text-decoration: none; color: inherit; }
 
 /* =========================================
-   HEADER & LOGO (Correction 4 - Remontée & Taille SVG)
+   HEADER & LOGO (Correction 5 - Box-Sizing & SVG)
    ========================================= */
 
 html, body {
   overflow-x: hidden;
 }
 
+/* 1. La solution pour que le bouton ne soit plus coupé */
 .site-header {
   background: var(--bg-white);
   height: 90px; 
@@ -45,6 +46,7 @@ html, body {
   z-index: 999; 
   border-bottom: 1px solid rgba(0,0,0,0.05);
   width: 100%; 
+  box-sizing: border-box; /* <-- EMPÊCHE la barre de déborder de l'écran */
 }
 
 .header-flex {
@@ -52,9 +54,11 @@ html, body {
   align-items: center; 
   justify-content: space-between;
   height: 100%;
-  padding: 0 40px !important; 
+  padding: 0 40px; /* Marges intérieures pour décoller le bouton */
   max-width: 1400px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* --- LE LOGO --- */
@@ -68,9 +72,10 @@ html, body {
 
 .site-header .logo-img {
   position: absolute;
-  top: -45px !important; /* <-- ON LE REMONTE. Ça va recentrer le texte bleu "ECO SAFE" dans la barre blanche. */
+  /* On le redescend pour centrer le texte "ECO SAFE". (avant c'était -45px) */
+  top: -20px; 
   left: 0;
-  height: 150px !important; 
+  height: 150px; 
   width: auto;
   max-width: none;
   z-index: 1000; 
@@ -80,14 +85,14 @@ html, body {
 .main-nav ul {
   display: flex;
   align-items: center;
-  gap: 40px !important;
-  margin: 0 !important; 
-  padding: 0 !important;
+  gap: 30px;
+  margin: 0; 
+  padding: 0; 
 }
 
 .main-nav li {
   list-style: none;
-  margin: 0 !important;
+  margin: 0;
 }
 
 .main-nav a {
@@ -107,7 +112,7 @@ html, body {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 30px !important; /* Donne un peu d'air entre les icônes et le bouton */
+  gap: 30px; 
   flex-shrink: 0; 
 }
 
@@ -115,46 +120,45 @@ html, body {
 .header-social {
   display: flex;
   align-items: center;
-  gap: 15px !important; /* Redonne un peu d'espace entre chaque réseau */
+  gap: 15px; 
 }
 
 .header-social a {
   color: #b1b1b6; 
   transition: color 0.3s ease;
-  display: inline-flex !important;
+  display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 !important; 
-  padding: 0 !important; 
-  /* J'ai supprimé la restriction de taille stricte qui étouffait le dessin */
+  text-decoration: none;
 }
 
 .header-social a:hover {
   color: var(--eco-blue);
 }
 
+/* On donne directement une taille fixe au SVG pour ne plus qu'il s'écrase */
 .header-social svg {
-  width: 24px !important; /* <-- TAILLE AUGMENTÉE POUR LES ICÔNES */
-  height: 24px !important; /* <-- TAILLE AUGMENTÉE POUR LES ICÔNES */
+  width: 22px; 
+  height: 22px; 
   display: block;
 }
 
 /* --- BOUTON CTA --- */
 .btn.btn-small {
-  padding: 10px 24px !important;
-  font-size: 0.95rem !important;
-  font-weight: 700 !important;
-  background: var(--eco-blue) !important; 
+  padding: 10px 24px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  background: var(--eco-blue); 
   color: #fff !important; 
-  border-radius: 50px !important;
-  border: 2px solid var(--eco-blue) !important;
-  white-space: nowrap !important; 
+  border-radius: 50px;
+  border: 2px solid var(--eco-blue);
+  white-space: nowrap; 
   transition: background 0.3s ease, color 0.3s ease;
-  margin: 0 !important;
+  text-decoration: none;
 }
 
 .btn.btn-small:hover {
-  background: #003060 !important; 
+  background: #003060; 
 }
 
 /* =========================================
