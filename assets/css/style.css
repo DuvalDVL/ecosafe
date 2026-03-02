@@ -31,50 +31,52 @@ body {
 a { text-decoration: none; color: inherit; }
 
 /* =========================================
-   HEADER & LOGO (Correction Alignement & Débordement)
+   HEADER & LOGO (Correction Alignement, Taille & Débordement précis)
    ========================================= */
 
-/* 1. On fixe la hauteur de la barre de navigation */
+/* 1. On fixe la hauteur de la barre blanche (Navbar) */
 .site-header {
   background: var(--bg-white);
-  height: 80px; /* Hauteur standard et élégante pour la navbar */
-  position: relative;
+  height: 80px; /* Hauteur standard et propre pour la navbar */
+  position: relative; /* Nécessaire pour le positionnement absolu du logo */
   z-index: 999; /* S'assure que la navbar est au-dessus du reste du site */
   border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
-/* 2. On centre parfaitement tous les éléments verticalement */
+/* 2. Le conteneur Flexbox qui aligne tous les éléments verticalement */
 .header-flex {
   display: flex;
-  align-items: center;
+  align-items: center; /* Centre verticalement tous les éléments (logo, menu, bouton) */
   justify-content: space-between;
   height: 100%;
 }
 
-/* 3. Le conteneur du logo sert de "cale" pour ne pas que le menu glisse à gauche */
+/* 3. Le conteneur du logo sert de "cale" pour le menu */
 .site-header .logo {
+  display: flex;
+  align-items: center;
   position: relative;
-  width: 140px; /* Modifie cette largeur si ton logo vient chevaucher le texte du menu */
+  width: 150px; /* Largeur de cale pour le logo image */
   height: 100%;
 }
 
-/* 4. La magie : Le logo est grand, calé en haut, et déborde vers le bas */
+/* 4. La magie : Positionnement précis du logo pour que SEUL le vert dépasse */
 .site-header .logo-img {
   position: absolute;
-  top: 5px; /* Empêche le logo de toucher le haut du navigateur */
+  top: 0; /* Aligne le HAUT du logo avec le haut de la navbar blanche. Ne dépasse pas en haut. */
   left: 0;
-  height: 140px; /* TAILLE DU LOGO : très grand, il va déborder sur la Hero Section */
+  height: 115px; /* TAILLE DU LOGO : très grand, il va déborder de 35px vers le bas (115-80). */
   width: auto;
   max-width: none;
   z-index: 1000; /* Le force à passer par-dessus l'image de fond */
 }
 
-/* 5. Réparation de l'alignement des liens du menu central */
+/* 5. Correction de la mise en forme et de l'alignement des liens du menu central */
 .main-nav ul {
   display: flex;
   align-items: center;
   gap: 35px;
-  margin: 0 !important; /* Détruit les marges par défaut qui poussent le texte vers le bas */
+  margin: 0 !important; /* Détruit les marges par défaut qui poussaient le texte vers le bas */
   padding: 0;
 }
 
@@ -83,12 +85,62 @@ a { text-decoration: none; color: inherit; }
   margin: 0;
 }
 
+.main-nav a {
+  color: var(--text-main); /* Remet la couleur principale du texte */
+  font-weight: 600; /* Remet le poids de la police */
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: var(--eco-blue);
+}
+
 /* 6. Alignement parfait de la zone droite (réseaux + bouton) */
 .header-actions {
   display: flex;
   align-items: center;
   gap: 20px;
 }
+
+/* Style spécifique pour les icônes réseaux sociaux (desktop only) */
+.header-social {
+  display: flex;
+  gap: 12px;
+}
+
+.header-social a {
+  color: #b1b1b6; /* Couleur grise des icônes réseaux */
+  transition: color 0.3s ease;
+}
+
+.header-social a:hover {
+  color: var(--eco-blue);
+}
+
+.header-social svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* 7. Correction du style du bouton "Étude gratuite" (bouton small) */
+.btn.btn-small {
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  background: var(--eco-blue); /* Remet la couleur bleue du bouton */
+  color: #fff; /* Remet le texte en blanc */
+  border-radius: 50px;
+  border: 2px solid var(--eco-blue);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn.btn-small:hover {
+  background: #003060; /* Un bleu plus sombre au survol */
+  color: #fff;
+}
+
 /* =========================================
    3. HERO SECTION
    ========================================= */
