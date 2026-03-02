@@ -31,7 +31,7 @@ body {
 a { text-decoration: none; color: inherit; }
 
 /* =========================================
-   HEADER & LOGO (Correction Finale - Centrage Naturel)
+   HEADER & LOGO (Élimination des conflits)
    ========================================= */
 
 html, body {
@@ -72,7 +72,7 @@ html, body {
 
 .site-header .logo-img {
   position: absolute;
-  top: -25px; /* <-- REDESCENDU : Le logo ne touchera plus le haut de l'écran */
+  top: -25px; 
   left: 0;
   height: 110px; 
   width: auto;
@@ -85,13 +85,12 @@ html, body {
   display: flex;
   align-items: center;
   height: 100%;
-  /* J'ai supprimé les marges qui poussaient le menu trop haut */
 }
 
 .main-nav ul {
   display: flex;
   align-items: center;
-  gap: 20px; /* <-- ÉCART RÉDUIT ENTRE LES LIENS */
+  gap: 15px !important; /* <-- FORCE LE RAPPROCHEMENT DES LIENS */
   margin: 0; 
   padding: 0; 
 }
@@ -120,17 +119,19 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 15px; /* <-- Écart réduit entre le bloc réseaux et le bouton contact */
+  gap: 10px !important; /* <-- FORCE L'ÉCART RÉDUIT AVEC LE BOUTON */
   flex-shrink: 0; 
   height: 100%; 
-  /* J'ai supprimé les marges qui poussaient les boutons trop haut */
 }
 
 /* --- LES RÉSEAUX SOCIAUX --- */
 .header-social {
   display: flex;
   align-items: center;
-  gap: 4px; /* <-- ICÔNES TRÈS PROCHES LES UNES DES AUTRES */
+  gap: 0px !important; /* <-- FORCE LES ICÔNES À SE COLLER */
+  border: none !important; /* <-- DÉTRUIT LA BARRE GRISE FANTÔME */
+  padding: 0 !important; /* <-- DÉTRUIT L'ESPACEMENT FANTÔME */
+  margin: 0 !important;
 }
 
 .header-social a {
