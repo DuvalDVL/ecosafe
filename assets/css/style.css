@@ -51,23 +51,20 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* --- LE LOGO --- */
-.site-header .logo {
-  display: block;
-  position: relative;
-  width: 200px; /* On élargit la zone pour que le texte du menu ne lui rentre pas dedans */
-  height: 100%;
-  flex-shrink: 0; /* INTERDIT au navigateur d'écraser cette zone */
-}
-
 .site-header .logo-img {
   position: absolute;
-  /* On remonte le logo dans le négatif pour compenser les marges transparentes de ton image */
-  top: -20px; 
+  top: -38px; /* <-- On le remonte encore plus (avant c'était -20px) */
   left: 0;
-  height: 140px; /* Plus grand ! */
+  height: 140px; 
   width: auto;
   max-width: none;
   z-index: 1000; 
+}
+
+/* --- LES RÉSEAUX SOCIAUX --- */
+.header-social {
+  display: flex;
+  gap: 6px; /* <-- Espacement très réduit (avant c'était 12px) */
 }
 
 /* --- LE MENU CENTRAL --- */
