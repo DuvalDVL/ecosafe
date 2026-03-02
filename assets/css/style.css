@@ -31,7 +31,7 @@ body {
 a { text-decoration: none; color: inherit; }
 
 /* =========================================
-   HEADER & LOGO (Version Blindée & Forcée)
+   HEADER & LOGO (Correction 4 - Remontée & Taille SVG)
    ========================================= */
 
 html, body {
@@ -40,7 +40,7 @@ html, body {
 
 .site-header {
   background: var(--bg-white);
-  height: 90px; /* On passe à 90px pour que le texte du logo respire mieux */
+  height: 90px; 
   position: relative; 
   z-index: 999; 
   border-bottom: 1px solid rgba(0,0,0,0.05);
@@ -52,7 +52,7 @@ html, body {
   align-items: center; 
   justify-content: space-between;
   height: 100%;
-  padding: 0 40px !important; /* FORCE 40px de marge pour décoller le bouton du bord droit */
+  padding: 0 40px !important; 
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -68,9 +68,9 @@ html, body {
 
 .site-header .logo-img {
   position: absolute;
-  top: 0px !important; /* FORCE le haut du logo à s'aligner avec le haut de l'écran */
+  top: -45px !important; /* <-- ON LE REMONTE. Ça va recentrer le texte bleu "ECO SAFE" dans la barre blanche. */
   left: 0;
-  height: 140px !important; /* Déborde de 50px vers le bas (140 - 90) */
+  height: 150px !important; 
   width: auto;
   max-width: none;
   z-index: 1000; 
@@ -107,7 +107,7 @@ html, body {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 25px !important; 
+  gap: 30px !important; /* Donne un peu d'air entre les icônes et le bouton */
   flex-shrink: 0; 
 }
 
@@ -115,7 +115,7 @@ html, body {
 .header-social {
   display: flex;
   align-items: center;
-  gap: 8px !important; /* FORCE l'espacement réduit */
+  gap: 15px !important; /* Redonne un peu d'espace entre chaque réseau */
 }
 
 .header-social a {
@@ -124,10 +124,9 @@ html, body {
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  margin: 0 !important; /* DÉTRUIT les marges par défaut du thème */
-  padding: 0 !important; /* DÉTRUIT les espacements par défaut du thème */
-  width: 24px !important;
-  height: 24px !important;
+  margin: 0 !important; 
+  padding: 0 !important; 
+  /* J'ai supprimé la restriction de taille stricte qui étouffait le dessin */
 }
 
 .header-social a:hover {
@@ -135,8 +134,8 @@ html, body {
 }
 
 .header-social svg {
-  width: 20px !important;
-  height: 20px !important;
+  width: 24px !important; /* <-- TAILLE AUGMENTÉE POUR LES ICÔNES */
+  height: 24px !important; /* <-- TAILLE AUGMENTÉE POUR LES ICÔNES */
   display: block;
 }
 
