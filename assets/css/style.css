@@ -74,7 +74,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* =========================================
-   HEADER & NAVBAR (CORRIGÉ V6 - Alignement vertical parfait)
+   HEADER & NAVBAR (V7 - Alignement + Menu Mobile)
    ========================================= */
 
 body {
@@ -124,15 +124,14 @@ body {
   max-width: none;
 }
 
-/* --- MENU CENTRÉ (Alignement vertical amélioré) --- */
+/* --- MENU CENTRÉ (Descente forcée) --- */
 .main-nav {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(3px); /* ✅ Descend de 3px */
   display: flex;
   align-items: center;
   z-index: 5;
-  /* ✅ SUPPRIMÉ height: 100% pour meilleur alignement */
 }
 
 .main-nav ul {
@@ -142,13 +141,11 @@ body {
   margin: 0 !important;
   padding: 0 !important;
   list-style: none !important;
-  /* ✅ SUPPRIMÉ height: 100% */
 }
 
 .main-nav > ul > li {
   display: flex;
   align-items: center;
-  /* ✅ SUPPRIMÉ height: 100% */
   margin: 0 !important;
   padding: 0 !important;
   position: relative;
@@ -163,9 +160,8 @@ body {
   transition: color 0.3s ease;
   display: flex !important;
   align-items: center;
-  padding: 8px 0 !important; /* ✅ Padding vertical pour zone cliquable */
+  padding: 8px 0 !important;
   margin: 0 !important;
-  /* ✅ SUPPRIMÉ height: 100% */
 }
 
 .main-nav a:hover {
@@ -194,7 +190,7 @@ body {
 
 .dropdown-content {
   position: absolute;
-  top: calc(100% + 8px); /* ✅ Position relative au lien, pas au header */
+  top: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
   background: var(--bg-white);
@@ -243,14 +239,14 @@ body {
   color: var(--eco-blue) !important;
 }
 
-/* --- ACTIONS (À droite - Alignement vertical amélioré) --- */
+/* --- ACTIONS (À droite - Descente forcée) --- */
 .header-actions {
   display: flex !important;
   align-items: center !important;
   gap: 20px !important;
   flex-shrink: 0;
   z-index: 10;
-  /* ✅ SUPPRIMÉ height: 100% pour meilleur alignement */
+  transform: translateY(3px); /* ✅ Descend de 3px */
 }
 
 /* --- RÉSEAUX SOCIAUX --- */
@@ -261,15 +257,6 @@ body {
   padding: 0 !important;
   margin: 0 !important;
   border: 0 !important;
-  border-right: 0 !important;
-  border-right-width: 0 !important;
-  border-right-style: none !important;
-}
-
-.header-social::before,
-.header-social::after {
-  display: none !important;
-  content: none !important;
 }
 
 .header-social a {
@@ -281,7 +268,6 @@ body {
   text-decoration: none !important;
   margin: 0 !important;
   padding: 0 !important;
-  /* ✅ SUPPRIMÉ height: 100% */
 }
 
 .header-social a:hover {
@@ -319,8 +305,218 @@ body {
   border-color: #003060 !important;
 }
 
-/* --- RESPONSIVE --- */
+/* =========================================
+   MENU MOBILE (Hamburger + Slide-in)
+   ========================================= */
+
+/* Bouton Hamburger (visible uniquement sur mobile) */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--text-main);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Animation du hamburger en X */
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* Menu mobile latéral */
+.mobile-menu {
+  position: fixed;
+  top: 90px; /* Sous le header */
+  right: -100%; /* Caché à droite par défaut */
+  width: 300px;
+  height: calc(100vh - 90px);
+  background: var(--bg-white);
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 998;
+  overflow-y: auto;
+  padding: 30px 20px;
+}
+
+.mobile-menu.active {
+  right: 0; /* Glisse depuis la droite */
+}
+
+/* Overlay pour fermer le menu en cliquant à côté */
+.mobile-overlay {
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 90px);
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 997;
+}
+
+.mobile-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Navigation mobile */
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mobile-nav > a,
+.mobile-nav .mobile-dropdown > a {
+  display: block;
+  padding: 16px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  text-decoration: none;
+  border-bottom: 1px solid #f0f0f0;
+  transition: color 0.2s ease;
+}
+
+.mobile-nav > a:hover,
+.mobile-nav .mobile-dropdown > a:hover {
+  color: var(--eco-blue);
+}
+
+/* Dropdown mobile */
+.mobile-dropdown {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.mobile-dropdown > a {
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-dropdown > a::after {
+  content: "▼";
+  font-size: 0.7rem;
+  color: var(--eco-blue);
+  transition: transform 0.3s ease;
+}
+
+.mobile-dropdown.active > a::after {
+  transform: rotate(180deg);
+}
+
+.mobile-dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding-left: 15px;
+}
+
+.mobile-dropdown.active .mobile-dropdown-content {
+  max-height: 300px;
+}
+
+.mobile-dropdown-content a {
+  display: block;
+  padding: 12px 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.mobile-dropdown-content a:hover {
+  color: var(--eco-blue);
+}
+
+/* Réseaux sociaux dans le menu mobile */
+.mobile-social {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.mobile-social a {
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.mobile-social a:hover {
+  color: var(--eco-blue);
+}
+
+.mobile-social svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Bouton CTA dans le menu mobile */
+.mobile-cta {
+  margin-top: 30px;
+}
+
+.mobile-cta .btn {
+  width: 100%;
+  text-align: center;
+  padding: 14px 20px;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+/* Desktop */
+.desktop-only {
+  display: block !important;
+}
+
+.mobile-only {
+  display: none !important;
+}
+
+/* Mobile */
 @media (max-width: 992px) {
+  .desktop-only {
+    display: none !important;
+  }
+  
+  .mobile-only {
+    display: block !important;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex !important;
+  }
+  
+  .header-flex {
+    padding: 0 20px;
+  }
+  
   .main-nav {
     position: static;
     transform: none;
