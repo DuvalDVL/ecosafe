@@ -703,18 +703,33 @@ body {
 
 .story-img.active { opacity: 1; z-index: 2; }
 
-/* Contenu texte */
 .story-content {
-  flex: 1;
-  padding-bottom: 30vh; /* Espace pour scroller la dernière étape */
-}
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px; /* Écart réduit entre les cartes */
+    padding: 10px 20px 40px 20px; /* Marges de sécurité à gauche et à droite */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 
-.story-step {
-  min-height: 80vh; /* Prend 80% de l'écran pour forcer le scroll */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+  .story-content::-webkit-scrollbar {
+    display: none;
+  }
+
+  .story-step {
+    flex: 0 0 78%; /* <-- LARGEUR RÉDUITE (avant 88%) pour voir la carte suivante */
+    scroll-snap-align: center;
+    background: var(--bg-white);
+    padding: 25px 20px; /* Marges internes légèrement affinées */
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    min-height: auto; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 
 .step-label {
   font-size: 0.85rem;
