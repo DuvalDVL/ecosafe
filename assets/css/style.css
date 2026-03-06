@@ -74,7 +74,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* =========================================
-   HEADER & NAVBAR (CORRIGÉ V4 - Sans séparateur)
+   HEADER & NAVBAR (CORRIGÉ V5 - Fix complet)
    ========================================= */
 
 body {
@@ -104,7 +104,7 @@ body {
   position: relative;
 }
 
-/* --- LOGO (À gauche) --- */
+/* --- LOGO --- */
 .site-header .logo {
   display: flex;
   align-items: center;
@@ -124,7 +124,7 @@ body {
   max-width: none;
 }
 
-/* --- MENU (Centré) --- */
+/* --- MENU CENTRÉ --- */
 .main-nav {
   position: absolute;
   left: 50%;
@@ -172,18 +172,14 @@ body {
   color: var(--eco-blue);
 }
 
-/* --- DROPDOWNS --- */
+/* --- DROPDOWNS (Hitbox corrigée) --- */
 .dropdown {
   position: relative;
   height: 100%;
   display: flex;
   align-items: center;
-  pointer-events: none;
-}
-
-.dropdown > a {
-  pointer-events: auto;
   cursor: pointer;
+  /* ✅ SUPPRIMÉ pointer-events: none pour que la hitbox fonctionne */
 }
 
 .dropdown > a::after {
@@ -198,24 +194,26 @@ body {
   transform: rotate(180deg);
 }
 
+/* ✅ Dropdown box avec hauteur réduite */
 .dropdown-content {
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
   background: var(--bg-white);
-  min-width: 240px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 12px;
-  padding: 12px 0;
+  min-width: 220px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  padding: 8px 0; /* ✅ Réduit de 12px à 8px */
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
   z-index: 9999;
   list-style: none;
   margin: 0;
+  margin-top: 8px; /* ✅ Petit espace sous le menu */
 }
 
 .dropdown:hover .dropdown-content {
@@ -231,44 +229,57 @@ body {
   padding: 0;
 }
 
+/* ✅ Liens avec padding vertical réduit */
 .dropdown-content li a {
   display: block !important;
-  padding: 12px 24px !important;
+  padding: 10px 20px !important; /* ✅ Réduit de 12px 24px à 10px 20px */
   font-size: 0.9rem !important;
   font-weight: 500 !important;
   color: var(--text-main) !important;
   text-decoration: none !important;
   transition: background 0.2s ease, color 0.2s ease !important;
   height: auto !important;
+  border-radius: 6px !important;
+  margin: 0 4px !important; /* ✅ Marge interne pour effet arrondi */
 }
 
 .dropdown-content li a:hover {
-  background: rgba(0, 70, 135, 0.05) !important;
+  background: rgba(0, 70, 135, 0.08) !important;
   color: var(--eco-blue) !important;
 }
 
-/* --- ACTIONS (À droite : Instagram, LinkedIn, Bouton) --- */
+/* --- ACTIONS (À droite) --- */
 .header-actions {
   display: flex !important;
   align-items: center !important;
-  gap: 15px !important; /* Espace entre les icônes et le bouton */
+  gap: 20px !important; /* ✅ Espace entre les icônes et le bouton */
   flex-shrink: 0;
   z-index: 10;
 }
 
-/* --- RÉSEAUX SOCIAUX (SANS séparateur) --- */
+/* --- RÉSEAUX SOCIAUX (FIX BRUTAL du séparateur) --- */
 .header-social {
   display: flex !important;
   align-items: center !important;
-  gap: 10px !important; /* Espace entre Instagram et LinkedIn */
+  gap: 12px !important;
   padding: 0 !important;
   margin: 0 !important;
-  border: none !important; /* ✅ SUPPRIME le séparateur */
-  border-right: none !important; /* ✅ FORCE la suppression */
+  /* ✅ TRIPLE FORCE la suppression du séparateur */
+  border: 0 !important;
+  border-right: 0 !important;
+  border-right-width: 0 !important;
+  border-right-style: none !important;
+}
+
+/* ✅ Suppression au cas où le séparateur vient d'un pseudo-élément */
+.header-social::before,
+.header-social::after {
+  display: none !important;
+  content: none !important;
 }
 
 .header-social a {
-  color: #b1b1b6;
+  color: #b1b1b6 !important;
   transition: all 0.3s ease;
   display: flex !important;
   align-items: center !important;
@@ -276,10 +287,11 @@ body {
   text-decoration: none !important;
   margin: 0 !important;
   padding: 0 !important;
+  border: none !important; /* ✅ Au cas où */
 }
 
 .header-social a:hover {
-  color: var(--eco-blue);
+  color: var(--eco-blue) !important;
   transform: translateY(-2px);
 }
 
@@ -318,15 +330,6 @@ body {
   .main-nav {
     position: static;
     transform: none;
-  }
-  
-  .dropdown-content {
-    left: 0;
-    transform: none;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    transform: translateY(0);
   }
 }
 
