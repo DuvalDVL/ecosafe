@@ -402,25 +402,46 @@ description: "Eco Safe installe des grilles de filtration pour avaloirs. Conform
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // --- Gestion des flèches du carrousel Storytelling (Mobile) ---
+    // 1. Animation des compteurs au scroll
+    const counters = document.querySelectorAll('.counter');
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = +counter.getAttribute('data-target');
+          const speed = 200;
+          const updateCount = () => {
+            const count = +counter.innerText;
+            const inc = target / speed;
+            if (count < target) {
+              counter.innerText = Math.ceil(count + inc);
+              setTimeout(updateCount, 15);
+            } else { counter.innerText = target; }
+          };
+          updateCount();
+          observer.unobserve(counter);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => counterObserver.observe(c));
+
+    // 2. Gestion des flèches Storytelling Mobile
     const carousel = document.getElementById('story-carousel');
     const prevBtn = document.getElementById('story-prev');
     const nextBtn = document.getElementById('story-next');
 
     if (carousel && prevBtn && nextBtn) {
       const updateArrows = () => {
-        // Cache la flèche "précédent" de façon invisible si on est tout à gauche
-        if (carousel.scrollLeft <= 10) {
+        // Gestion de la flèche gauche (Première carte)
+        if (carousel.scrollLeft <= 15) {
           prevBtn.style.opacity = '0';
           prevBtn.style.pointerEvents = 'none';
         } else {
           prevBtn.style.opacity = '1';
           prevBtn.style.pointerEvents = 'auto';
         }
-
-        // Cache la flèche "suivant" de façon invisible si on est tout à droite
-        // (largeur totale du défilement - largeur visible)
-        if (carousel.scrollLeft >= (carousel.scrollWidth - carousel.clientWidth - 10)) {
+        // Gestion de la flèche droite (Dernière carte)
+        if (carousel.scrollLeft >= (carousel.scrollWidth - carousel.clientWidth - 15)) {
           nextBtn.style.opacity = '0';
           nextBtn.style.pointerEvents = 'none';
         } else {
@@ -429,22 +450,18 @@ description: "Eco Safe installe des grilles de filtration pour avaloirs. Conform
         }
       };
 
-      // Met à jour les flèches quand on swipe à la main
       carousel.addEventListener('scroll', updateArrows);
-
-      // Clic sur Suivant
+      
       nextBtn.addEventListener('click', () => {
-        const cardWidth = carousel.querySelector('.story-step').offsetWidth + 15; // +15px d'écart
-        carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        const step = carousel.querySelector('.story-step').offsetWidth + 10;
+        carousel.scrollBy({ left: step, behavior: 'smooth' });
       });
 
-      // Clic sur Précédent
       prevBtn.addEventListener('click', () => {
-        const cardWidth = carousel.querySelector('.story-step').offsetWidth + 15;
-        carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+        const step = carousel.querySelector('.story-step').offsetWidth + 10;
+        carousel.scrollBy({ left: -step, behavior: 'smooth' });
       });
 
-      // Initialise l'état des flèches au chargement de la page
       updateArrows();
     }
   });
