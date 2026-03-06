@@ -1,48 +1,52 @@
 <header class="site-header">
-  <div class="container header-flex">
-    <a href="{{ site.baseurl }}/" class="logo">
+  <div class="container header-flex">
+    <!-- LOGO -->
+    <a href="{{ site.baseurl }}/" class="logo">
       <img src="{{ site.baseurl }}/assets/img/logo_ecosafe.png" alt="Eco Safe Logo" class="logo-img">
     </a>
-    <nav class="main-nav desktop-only">
-  <ul>
-    <!-- Dropdown sur "La Solution" -->
-    <li class="dropdown">
-      <a href="{{ site.baseurl }}/produit/">La Solution</a>
-      <ul class="dropdown-content">
-        <li><a href="{{ site.baseurl }}/produit/grille-standard/">Grille Standard</a></li>
-        <li><a href="{{ site.baseurl }}/produit/grille-industrielle/">Grille Industrielle</a></li>
-        <li><a href="{{ site.baseurl }}/produit/grille-sportive/">Grille Sportive</a></li>
-      </ul>
-    </li>
     
-    <!-- Dropdown sur "Secteurs" -->
-    <li class="dropdown">
-      <a href="{{ site.baseurl }}/#secteurs">Secteurs</a>
-      <ul class="dropdown-content">
-        <li><a href="{{ site.baseurl }}/secteurs/collectivites/">Collectivités</a></li>
-        <li><a href="{{ site.baseurl }}/secteurs/industries/">Industries</a></li>
-        <li><a href="{{ site.baseurl }}/secteurs/complexes-sportifs/">Complexes Sportifs</a></li>
-      </ul>
-    </li>
-    
-    <!-- Lien simple -->
-    <li><a href="{{ site.baseurl }}/#services">Services</a></li>
-  </ul>
-</nav>
+    <!-- MENU CENTRÉ (SANS les icônes sociales dedans) -->
+    <nav class="main-nav desktop-only">
+      <ul>
+        <!-- Dropdown La Solution -->
+        <li class="dropdown">
+          <a href="{{ site.baseurl }}/produit/">La Solution</a>
+          <ul class="dropdown-content">
+            <li><a href="{{ site.baseurl }}/produit/grille-standard/">Grille Standard</a></li>
+            <li><a href="{{ site.baseurl }}/produit/grille-industrielle/">Grille Industrielle</a></li>
+            <li><a href="{{ site.baseurl }}/produit/grille-sportive/">Grille Sportive</a></li>
+          </ul>
+        </li>
         
-    <div class="header-actions">
-      <div class="header-social desktop-only">
-        <a href="https://linkedin.com/company/ecosafesas/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Eco Safe">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61568725366308" target="_blank" rel="noopener noreferrer" aria-label="Facebook Eco Safe">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-        </a>
-        <a href="https://www.instagram.com/eco_safe.fr" target="_blank" rel="noopener noreferrer" aria-label="Instagram Eco Safe">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-        </a>
-      </div>
-      <a href="{{ site.baseurl }}/contact/" class="btn btn-primary btn-small">Étude gratuite</a>
-    </div>
-  </div>
+        <!-- Dropdown Secteurs -->
+        <li class="dropdown">
+          <a href="{{ site.baseurl }}/#secteurs">Secteurs</a>
+          <ul class="dropdown-content">
+            <li><a href="{{ site.baseurl }}/secteurs/collectivites/">Collectivités</a></li>
+            <li><a href="{{ site.baseurl }}/secteurs/industries/">Industries</a></li>
+            <li><a href="{{ site.baseurl }}/secteurs/complexes-sportifs/">Complexes Sportifs</a></li>
+          </ul>
+        </li>
+        
+        <!-- Lien simple -->
+        <li><a href="{{ site.baseurl }}/#services">Services</a></li>
+      </ul>
+    </nav>
+    
+    <!-- ACTIONS À DROITE (Icônes sociales + Bouton) -->
+    <div class="header-actions">
+      <!-- Icônes Instagram et LinkedIn -->
+      <div class="header-social desktop-only">
+        <a href="https://www.instagram.com/eco_safe.fr" target="_blank" rel="noopener noreferrer" aria-label="Instagram Eco Safe">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="https://linkedin.com/company/ecosafesas/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Eco Safe">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </a>
+      </div>
+      
+      <!-- Bouton CTA -->
+      <a href="{{ site.baseurl }}/contact/" class="btn btn-primary btn-small">Étude gratuite</a>
+    </div>
+  </div>
 </header>
