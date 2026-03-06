@@ -401,68 +401,36 @@ description: "Eco Safe installe des grilles de filtration pour avaloirs. Conform
 </script>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // 1. Animation des compteurs au scroll
-    const counters = document.querySelectorAll('.counter');
-    const counterObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const counter = entry.target;
-          const target = +counter.getAttribute('data-target');
-          const speed = 200;
-          const updateCount = () => {
-            const count = +counter.innerText;
-            const inc = target / speed;
-            if (count < target) {
-              counter.innerText = Math.ceil(count + inc);
-              setTimeout(updateCount, 15);
-            } else { counter.innerText = target; }
-          };
-          updateCount();
-          observer.unobserve(counter);
-        }
-      });
-    }, { threshold: 0.5 });
-    counters.forEach(c => counterObserver.observe(c));
-
-    // 2. Gestion des flèches Storytelling Mobile
+document.addEventListener("DOMContentLoaded", () => {
     const carousel = document.getElementById('story-carousel');
     const prevBtn = document.getElementById('story-prev');
     const nextBtn = document.getElementById('story-next');
 
     if (carousel && prevBtn && nextBtn) {
-      const updateArrows = () => {
-        // Gestion de la flèche gauche (Première carte)
-        if (carousel.scrollLeft <= 15) {
-          prevBtn.style.opacity = '0';
-          prevBtn.style.pointerEvents = 'none';
-        } else {
-          prevBtn.style.opacity = '1';
-          prevBtn.style.pointerEvents = 'auto';
-        }
-        // Gestion de la flèche droite (Dernière carte)
-        if (carousel.scrollLeft >= (carousel.scrollWidth - carousel.clientWidth - 15)) {
-          nextBtn.style.opacity = '0';
-          nextBtn.style.pointerEvents = 'none';
-        } else {
-          nextBtn.style.opacity = '1';
-          nextBtn.style.pointerEvents = 'auto';
-        }
-      };
+        const updateArrows = () => {
+            const scrollPos = carousel.scrollLeft;
+            const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+            
+            // Flèche gauche
+            prevBtn.style.opacity = scrollPos < 10 ? "0" : "1";
+            prevBtn.style.pointerEvents = scrollPos < 10 ? "none" : "auto";
+            
+            // Flèche droite
+            nextBtn.style.opacity = scrollPos > maxScroll - 10 ? "0" : "1";
+            nextBtn.style.pointerEvents = scrollPos > maxScroll - 10 ? "none" : "auto";
+        };
 
-      carousel.addEventListener('scroll', updateArrows);
-      
-      nextBtn.addEventListener('click', () => {
-        const step = carousel.querySelector('.story-step').offsetWidth + 10;
-        carousel.scrollBy({ left: step, behavior: 'smooth' });
-      });
+        carousel.addEventListener('scroll', updateArrows);
+        
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
+        });
 
-      prevBtn.addEventListener('click', () => {
-        const step = carousel.querySelector('.story-step').offsetWidth + 10;
-        carousel.scrollBy({ left: -step, behavior: 'smooth' });
-      });
+        prevBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
+        });
 
-      updateArrows();
+        updateArrows();
     }
-  });
+});
 </script>
