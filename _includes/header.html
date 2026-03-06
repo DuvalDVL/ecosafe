@@ -4,12 +4,32 @@
       <img src="{{ site.baseurl }}/assets/img/logo_ecosafe.png" alt="Eco Safe Logo" class="logo-img">
     </a>
     <nav class="main-nav desktop-only">
-      <ul>
-        <li><a href="{{ site.baseurl }}/produit/">La Solution</a></li>
-        <li><a href="{{ site.baseurl }}/#secteurs">Secteurs</a></li>
-        <li><a href="{{ site.baseurl }}/#services">Services</a></li>
-      </ul>
-    </nav>
+  <ul>
+    <!-- Dropdown sur "La Solution" -->
+    <li class="dropdown">
+      <a href="{{ site.baseurl }}/produit/">La Solution</a>
+      <ul class="dropdown-content">
+        <li><a href="{{ site.baseurl }}/produit/grille-standard/">Grille Standard</a></li>
+        <li><a href="{{ site.baseurl }}/produit/grille-industrielle/">Grille Industrielle</a></li>
+        <li><a href="{{ site.baseurl }}/produit/grille-sportive/">Grille Sportive</a></li>
+      </ul>
+    </li>
+    
+    <!-- Dropdown sur "Secteurs" -->
+    <li class="dropdown">
+      <a href="{{ site.baseurl }}/#secteurs">Secteurs</a>
+      <ul class="dropdown-content">
+        <li><a href="{{ site.baseurl }}/secteurs/collectivites/">Collectivités</a></li>
+        <li><a href="{{ site.baseurl }}/secteurs/industries/">Industries</a></li>
+        <li><a href="{{ site.baseurl }}/secteurs/complexes-sportifs/">Complexes Sportifs</a></li>
+      </ul>
+    </li>
+    
+    <!-- Lien simple -->
+    <li><a href="{{ site.baseurl }}/#services">Services</a></li>
+  </ul>
+</nav>
+        
     <div class="header-actions">
       <div class="header-social desktop-only">
         <a href="https://linkedin.com/company/ecosafesas/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Eco Safe">
