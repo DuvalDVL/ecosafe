@@ -1660,3 +1660,21 @@ body {
     display: block !important;
   }
 }
+
+/* Taille du logo footer sur PC */
+.footer-logo-img {
+  height: 90px; /* Plus gros que la version précédente */
+  width: auto;
+  display: block;
+}
+
+/* Taille du logo footer sur Mobile */
+@media (max-width: 992px) {
+  .footer-logo-img {
+    height: 80px; /* Équilibré pour smartphone */
+  }
+  
+  .footer-brand {
+    margin-bottom: 40px; /* Espace supplémentaire entre le logo et les colonnes suivantes */
+  }
+}
