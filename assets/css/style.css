@@ -1455,10 +1455,17 @@ body {
   padding-bottom: 30vh; display: block;
 }
 .story-step {
-  min-height: 80vh; 
-  display: flex; flex-direction: column; justify-content: center;
-  background: transparent; box-shadow: none; padding: 0; border-radius: 0;
-}
+    flex: 0 0 90% !important; /* <-- CARTE AGRANDIE (prenant presque toute la largeur) */
+    scroll-snap-align: center;
+    background: var(--bg-white);
+    padding: 25px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    min-height: auto !important; 
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+  }
 
 .mobile-story-img { display: none; }
 
