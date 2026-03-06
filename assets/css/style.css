@@ -74,7 +74,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* =========================================
-   HEADER & NAVBAR (CORRIGÉ - Centrage parfait)
+   HEADER & NAVBAR (CORRIGÉ V2)
    ========================================= */
 
 body {
@@ -91,21 +91,20 @@ body {
   box-sizing: border-box;
 }
 
-/* ✅ Grille à 3 colonnes pour aligner Logo / Menu / Actions */
 .header-flex {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr; /* Logo | Menu | Actions */
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 100%;
   padding: 0 40px;
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
-  gap: 20px;
+  position: relative;
 }
 
-/* --- LOGO (Colonne 1 - Aligné à gauche) --- */
+/* --- LOGO (À gauche) --- */
 .site-header .logo {
   display: flex;
   align-items: center;
@@ -113,7 +112,7 @@ body {
   width: 160px;
   height: 100%;
   flex-shrink: 0;
-  justify-self: start; /* Force l'alignement à gauche */
+  z-index: 10;
 }
 
 .site-header .logo-img {
@@ -123,22 +122,23 @@ body {
   height: 110px;
   width: auto;
   max-width: none;
-  z-index: 1000;
 }
 
-/* --- MENU (Colonne 2 - Centré) --- */
+/* --- MENU (Centré avec position absolute) --- */
 .main-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
-  justify-content: center; /* ✅ Centre le menu */
   height: 100%;
-  justify-self: center; /* ✅ Centre dans la grille */
+  z-index: 5;
 }
 
 .main-nav ul {
   display: flex !important;
   align-items: center !important;
-  gap: 30px !important; /* ✅ Espacement confortable */
+  gap: 35px !important;
   margin: 0 !important;
   padding: 0 !important;
   list-style: none !important;
@@ -158,36 +158,34 @@ body {
   transition: color 0.3s ease;
   display: block !important;
   padding: 0 !important;
+  margin: 0 !important;
 }
 
 .main-nav a:hover {
   color: var(--eco-blue);
 }
 
-/* --- ACTIONS (Colonne 3 - Alignées à droite) --- */
+/* --- ACTIONS (À droite : Instagram, LinkedIn, Bouton) --- */
 .header-actions {
   display: flex !important;
   align-items: center !important;
-  justify-content: flex-end !important; /* ✅ Pousse vers la droite */
-  gap: 15px !important;
+  gap: 12px !important;
   flex-shrink: 0;
-  height: 100%;
-  justify-self: end; /* ✅ Aligne dans la grille */
+  z-index: 10;
 }
 
-/* --- RÉSEAUX SOCIAUX (Très proches) --- */
+/* --- RÉSEAUX SOCIAUX (Instagram et LinkedIn très proches) --- */
 .header-social {
   display: flex !important;
   align-items: center !important;
-  gap: 4px !important; /* ✅ Icônes très proches (au lieu de 12px) */
+  gap: 6px !important; /* Espace minimal entre IG et LinkedIn */
   padding: 0 !important;
   margin: 0 !important;
-  border: none !important;
 }
 
 .header-social a {
   color: #b1b1b6;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -211,7 +209,7 @@ body {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 10px 24px !important;
+  padding: 12px 26px !important;
   font-size: 0.95rem !important;
   font-weight: 700 !important;
   background: var(--eco-blue) !important;
@@ -219,7 +217,7 @@ body {
   border-radius: 50px !important;
   border: 2px solid var(--eco-blue) !important;
   white-space: nowrap !important;
-  transition: background 0.3s ease, color 0.3s ease !important;
+  transition: all 0.3s ease !important;
   text-decoration: none !important;
   margin: 0 !important;
   line-height: 1 !important;
@@ -228,6 +226,14 @@ body {
 .btn.btn-small:hover {
   background: #003060 !important;
   border-color: #003060 !important;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+  .main-nav {
+    position: static;
+    transform: none;
+  }
 }
 
 /* =========================================
