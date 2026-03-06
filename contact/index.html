@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Contact & Devis gratuit
+title: Contact & Devis gratuit | Eco Safe
 description: "Contactez l'équipe Eco Safe ou l'un de nos revendeurs régionaux pour une étude gratuite de votre projet de filtration des eaux pluviales."
 ---
 
@@ -14,45 +14,65 @@ description: "Contactez l'équipe Eco Safe ou l'un de nos revendeurs régionaux 
   </div>
 </section>
 
-<section class="contact-page-form" style="padding-bottom: 60px;">
+<section class="contact-page-form" style="padding-bottom: 80px;">
   <div class="container">
-    <div class="contact-grid">
+    <div class="contact-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 60px;">
       
       <div class="contact-info">
-        <h2>Siège Social</h2>
-        <p>Un conseil technique ? Une question sur la loi AGEC ? Appelez-nous directement.</p>
-        <ul class="contact-list">
-          <li><strong>📍 Siège :</strong> Haute-Savoie, France</li>
-          <li><strong>✉️ Email :</strong> contact@eco-safe.fr</li>
-          <li><strong>📞 Téléphone :</strong> 04 50 XX XX XX</li>
-          <li><strong>⏱ Ouverture :</strong> Lun - Ven | 8h30 - 18h00</li>
+        <h2 style="font-size: 2rem; color: var(--eco-blue); margin-bottom: 20px;">Siège Social</h2>
+        <p style="margin-bottom: 30px; color: var(--text-muted);">
+          Besoin d'un conseil sur la conformité de vos réseaux pluviaux ? Nos experts vous répondent directement.
+        </p>
+        <ul class="contact-list" style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 15px; display: flex; gap: 10px;">
+            <strong style="color: var(--eco-green);">→</strong> 
+            <span><strong>Siège :</strong> 2785 route de Cruseilles, 74350 Copponex, France.</span>
+          </li>
+          <li style="margin-bottom: 15px; display: flex; gap: 10px;">
+            <strong style="color: var(--eco-green);">→</strong> 
+            <span><strong>Email :</strong> contact@eco-safe.fr</span>
+          </li>
+          <li style="margin-bottom: 15px; display: flex; gap: 10px;">
+            <strong style="color: var(--eco-green);">→</strong> 
+            <span><strong>Téléphone :</strong> 06 95 00 74 71 / 06 29 72 83 38</span>
+          </li>
+          <li style="display: flex; gap: 10px;">
+            <strong style="color: var(--eco-green);">→</strong> 
+            <span><strong>Ouverture :</strong> Lun - Ven | 8h30 - 18h00</span>
+          </li>
         </ul>
       </div>
       
       <div class="contact-form-wrapper">
-        <form action="https://formspree.io/f/TON_ID_FORMSPREE" method="POST" class="eco-form">
-          <div class="form-row">
+        <form action="https://formspree.io/f/TON_ID_FORMSPREE" method="POST" class="eco-form" style="background: white; padding: 40px; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.05);">
+          <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
             <div class="form-group">
-              <label for="name">Nom / Structure *</label>
-              <input type="text" id="name" name="name" required placeholder="Ex: Mairie de...">
+              <label style="display: block; font-weight: 600; margin-bottom: 8px;">Nom / Structure *</label>
+              <input type="text" name="name" required placeholder="Ex: Mairie de..." style="width: 100%; padding: 12px; border: 1px solid #eee; border-radius: 8px;">
             </div>
             <div class="form-group">
-              <label for="email">Email professionnel *</label>
-              <input type="email" id="email" name="_replyto" required placeholder="contact@ville.fr">
+              <label style="display: block; font-weight: 600; margin-bottom: 8px;">Email professionnel *</label>
+              <input type="email" name="_replyto" required placeholder="contact@ville.fr" style="width: 100%; padding: 12px; border: 1px solid #eee; border-radius: 8px;">
             </div>
           </div>
-          <div class="form-group">
-            <label for="subject">Sujet de la demande</label>
-            <input type="text" id="subject" name="subject" placeholder="Ex: Devis pour 50 avaloirs">
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label style="display: block; font-weight: 600; margin-bottom: 8px;">Sujet de la demande</label>
+            <input type="text" name="subject" placeholder="Ex: Devis pour 50 avaloirs" style="width: 100%; padding: 12px; border: 1px solid #eee; border-radius: 8px;">
           </div>
-          <div class="form-group">
-            <label for="message">Votre message *</label>
-            <textarea id="message" name="message" rows="5" required placeholder="Décrivez vos besoins..."></textarea>
+          <div class="form-group" style="margin-bottom: 25px;">
+            <label style="display: block; font-weight: 600; margin-bottom: 8px;">Votre message *</label>
+            <textarea name="message" rows="4" required placeholder="Décrivez vos besoins..." style="width: 100%; padding: 12px; border: 1px solid #eee; border-radius: 8px;"></textarea>
           </div>
           
+          <div class="form-group" style="margin-bottom: 30px; display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="rgpd" name="rgpd" required style="margin-top: 5px;">
+            <label for="rgpd" style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;">
+              En soumettant ce formulaire, j'accepte que les informations saisies soient exploitées dans le cadre de ma demande de devis et de la relation commerciale qui peut en découler.
+            </label>
+          </div>
+
           <input type="text" name="_gotcha" style="display:none">
-          
-          <button type="submit" class="btn btn-primary btn-full">Envoyer ma demande</button>
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px;">Envoyer ma demande</button>
         </form>
       </div>
 
@@ -62,47 +82,51 @@ description: "Contactez l'équipe Eco Safe ou l'un de nos revendeurs régionaux 
 
 <section class="map-section" style="padding-bottom: 80px;">
   <div class="container">
-    <div class="map-wrapper">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d177303.4901962327!2d6.4955373356064115!3d45.98971842866952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47894c0623f95f4b%3A0x408ab2ae4baab30!2sHaute-Savoie!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="map-wrapper" style="border-radius: 24px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2777.42674251214!2d6.088656815573456!3d45.88280627910815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478b8770281699f1%3A0x6d9f61b072833e2!2s2785%20Rte%20de%20Cruseilles%2C%2074350%20Copponex!5e0!3m2!1sfr!2sfr!4v1709765432109!5m2!1sfr!2sfr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
 </section>
 
-<section class="resellers-section" style="background: var(--bg-light); padding: 80px 0 100px;">
+<section class="resellers-section" style="background: var(--bg-light); padding: 100px 0;">
   <div class="container">
-    <div class="section-header text-center">
+    <div class="section-header text-center" style="margin-bottom: 60px;">
       <span class="step-label">Réseau de distribution</span>
-      <h2 class="section-title">Nos Revendeurs <span class="text-green">Agréés</span></h2>
-      <p class="section-subtitle">Vous êtes situés dans l'un de ces départements ? Contactez directement nos partenaires locaux pour une intervention rapide.</p>
+      <h2 style="font-size: 2.5rem; color: var(--eco-blue);">Nos Revendeurs <span class="text-green">Agréés</span></h2>
+      <p style="color: var(--text-muted); max-width: 600px; margin: 20px auto 0;">Vous êtes situé dans l'un de ces secteurs ? Contactez directement nos partenaires locaux pour une intervention sous 15 minutes [cite: 2026-03-02].</p>
     </div>
 
-    <div class="resellers-grid">
+    <div class="resellers-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
       
-      <div class="reseller-card">
-        <h3>Daniel Remetter</h3>
-        <p class="reseller-region">Régions : Départements <strong>67, 68, 90</strong> et <strong>Luxembourg</strong></p>
-        <div class="reseller-contact">
-          <a href="mailto:ecosafe.dremetter@sfr.fr" class="reseller-email">ecosafe.dremetter@sfr.fr</a>
-          <a href="tel:+33687537777" class="reseller-phone">06 87 53 77 77</a>
+      <div class="reseller-card" style="background: white; padding: 40px; border-radius: 24px; border: 1px solid rgba(0,0,0,0.03);">
+        <h3 style="margin-bottom: 10px; color: var(--text-main);">Daniel Remetter</h3>
+        <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 25px;">
+          Régions : Départements <strong>67, 68, 90</strong> et <strong>Luxembourg</strong>
+        </p>
+        <div class="reseller-contact" style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="mailto:ecosafe.dremetter@sfr.fr" style="color: var(--eco-green); font-weight: 600;">→ ecosafe.dremetter@sfr.fr</a>
+          <a href="tel:+33687537777" style="color: var(--eco-blue); font-weight: 600;">→ 06 87 53 77 77</a>
         </div>
       </div>
 
-      <div class="reseller-card">
-        <h3>David Vichard</h3>
-        <p class="reseller-region">Régions : Départements <strong>26</strong> et <strong>07</strong></p>
-        <div class="reseller-contact">
-          <a href="mailto:david.vichard@gmail.com" class="reseller-email">david.vichard@gmail.com</a>
-          <a href="tel:+33628239255" class="reseller-phone">06 28 23 92 55</a>
+      <div class="reseller-card" style="background: white; padding: 40px; border-radius: 24px; border: 1px solid rgba(0,0,0,0.03);">
+        <h3 style="margin-bottom: 10px; color: var(--text-main);">David Vichard</h3>
+        <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 25px;">
+          Régions : Départements <strong>26</strong> et <strong>07</strong>
+        </p>
+        <div class="reseller-contact" style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="mailto:david.vichard@gmail.com" style="color: var(--eco-green); font-weight: 600;">→ david.vichard@gmail.com</a>
+          <a href="tel:+33628239255" style="color: var(--eco-blue); font-weight: 600;">→ 06 28 23 92 55</a>
         </div>
       </div>
 
-      <div class="reseller-card">
-        <h3>Sylvain Fèvre</h3>
-        <span class="reseller-company">Entreprise Ecopebat</span>
-        <p class="reseller-region" style="margin-top: 5px;">Région : Département <strong>88</strong></p>
-        <div class="reseller-contact">
-          <a href="mailto:ecopebat@gmail.com" class="reseller-email">ecopebat@gmail.com</a>
-          <a href="tel:+33631620832" class="reseller-phone">06 31 62 08 32</a>
+      <div class="reseller-card" style="background: white; padding: 40px; border-radius: 24px; border: 1px solid rgba(0,0,0,0.03);">
+        <h3 style="margin-bottom: 5px; color: var(--text-main);">Sylvain Fèvre</h3>
+        <span style="display: block; font-size: 0.85rem; color: var(--eco-blue); font-weight: 700; margin-bottom: 10px;">Entreprise Ecopebat</span>
+        <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 25px;">Région : Département <strong>88</strong></p>
+        <div class="reseller-contact" style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="mailto:ecopebat@gmail.com" style="color: var(--eco-green); font-weight: 600;">→ ecopebat@gmail.com</a>
+          <a href="tel:+33631620832" style="color: var(--eco-blue); font-weight: 600;">→ 06 31 62 08 32</a>
         </div>
       </div>
 
