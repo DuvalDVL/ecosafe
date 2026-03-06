@@ -1427,8 +1427,13 @@ body {
 }
 
 /* =========================================
-   HOMEPAGE : CARROUSELS MOBILE (Swipe)
+   HOMEPAGE : STORYTELLING & CARROUSELS
    ========================================= */
+
+/* RESTAURATION DE LA VERSION PC */
+.story-container { display: flex; gap: 60px; position: relative; align-items: flex-start; }
+.story-content-wrapper { flex: 1; padding-bottom: 30vh; position: relative; }
+.story-content { display: block !important; } /* FORCE L'AFFICHAGE VERTICAL SUR PC */
 
 /* Styles de l'image ajoutée dans les cartes Storytelling sur mobile */
 .mobile-story-img {
@@ -1441,12 +1446,8 @@ body {
 }
 
 @media (max-width: 992px) {
-  
-  /* 1. Compteurs d'impact en carrousel swipe */
-  .dashboard-impact .container {
-    padding: 0; 
-  }
-  
+  /* 1. Compteurs d'impact */
+  .dashboard-impact .container { padding: 0; }
   .stats-grid {
     display: flex !important;
     flex-wrap: nowrap !important;
@@ -1456,12 +1457,9 @@ body {
     padding: 20px 24px 30px 24px !important;
     -ms-overflow-style: none; 
     scrollbar-width: none; 
+    overscroll-behavior-x: contain; /* EMPÊCHE LA PAGE DE SAUTER AU SCROLL */
   }
-  
-  .stats-grid::-webkit-scrollbar {
-    display: none; 
-  }
-  
+  .stats-grid::-webkit-scrollbar { display: none; }
   .stat-card {
     flex: 0 0 75%; 
     scroll-snap-align: center;
@@ -1471,38 +1469,27 @@ body {
     border: 1px solid rgba(0,0,0,0.03);
   }
 
-  /* 2. Storytelling (Constat, Solution) en carrousel de cartes */
-  .story-tunnel {
-    background: var(--bg-light);
-    padding: 60px 0;
-  }
+  /* 2. Storytelling (Constat, Solution) */
+  .story-tunnel { background: var(--bg-light); padding: 60px 0; }
+  .story-tunnel .container { padding: 0; }
+  .story-content-wrapper { padding-bottom: 0; }
   
-  .story-tunnel .container {
-    padding: 0; 
-  }
-
-  /* On cache la partie gauche de la version PC sur Mobile */
-  .story-visuals {
-    display: none !important;
-  }
-
   .story-content {
-    display: flex;
+    display: flex !important; /* PASSE EN CARROUSEL HORIZONTAL SEULEMENT SUR MOBILE */
     flex-wrap: nowrap;
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
-    gap: 15px; /* Écart réduit */
-    padding: 10px 15px 40px 15px; /* Marges réduites */
+    gap: 15px; 
+    padding: 10px 15px 40px 15px; 
     -ms-overflow-style: none;
     scrollbar-width: none;
+    overscroll-behavior-x: contain; /* BLOQUE LE SCROLL VERTICAL INVOLONTAIRE DE LA PAGE */
   }
-
-  .story-content::-webkit-scrollbar {
-    display: none;
-  }
+  .story-content::-webkit-scrollbar { display: none; }
 
   .story-step {
-    flex: 0 0 65% !important; /* LARGEUR RÉDUITE À 65% pour voir la carte suivante */
+    flex: 0 0 75% !important; /* Largeur de 75% pour laisser respirer le design */
     scroll-snap-align: center;
     background: var(--bg-white);
     padding: 25px 20px;
@@ -1514,12 +1501,34 @@ body {
     justify-content: flex-start !important;
   }
 
-  .story-step h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
+  /* DESIGN DES FLÈCHES DE NAVIGATION */
+  .carousel-arrows {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    right: 5px;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none; /* Laisse passer les clics au travers s'il n'y a pas de bouton */
+    z-index: 10;
   }
-
-  .story-step p, .story-step li {
-    font-size: 1rem;
+  
+  .carousel-arrow {
+    pointer-events: auto; /* Active le clic sur les boutons eux-mêmes */
+    background: var(--eco-blue);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 48, 96, 0.4);
+    cursor: pointer;
+    transition: transform 0.2s;
   }
+  .carousel-arrow:active { transform: scale(0.9); }
+  .carousel-arrow svg { width: 24px; height: 24px; }
 }
