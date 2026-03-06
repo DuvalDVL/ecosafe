@@ -24,5 +24,36 @@
 
   {% include footer.html %}
 
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.getElementById('mobile-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const overlay = document.getElementById('mobile-overlay');
+  const dropdowns = document.querySelectorAll('.mobile-dropdown > a');
+  
+  // Ouvrir/fermer le menu
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    menu.classList.toggle('active');
+    overlay.classList.toggle('active');
+  });
+  
+  // Fermer en cliquant sur l'overlay
+  overlay.addEventListener('click', () => {
+    toggle.classList.remove('active');
+    menu.classList.remove('active');
+    overlay.classList.remove('active');
+  });
+  
+  // Dropdowns dans le menu mobile
+  dropdowns.forEach(dropdown => {
+    dropdown.addEventListener('click', (e) => {
+      e.preventDefault();
+      dropdown.parentElement.classList.toggle('active');
+    });
+  });
+});
+</script>
+
 </body>
 </html>
