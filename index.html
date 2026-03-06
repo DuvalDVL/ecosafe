@@ -305,70 +305,52 @@ description: "Eco Safe installe des grilles de filtration pour avaloirs. Conform
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const counters = document.querySelectorAll('.counter');
-    const speed = 200; // Plus c'est bas, plus c'est rapide
-
-    counters.forEach(counter => {
-      const updateCount = () => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-        const inc = target / speed;
-
-        if (count < target) {
-          // Gère les nombres décimaux pour les millions (ex: 2.4)
-          counter.innerText = target % 1 !== 0 ? (count + inc).toFixed(1) : Math.ceil(count + inc);
-          setTimeout(updateCount, 15);
-        } else {
-          counter.innerText = target;
-        }
-      };
-      updateCount();
-    });
-  });
-</script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // --- 1. Animation des compteurs d'impact (Déjà présent) ---
+    // --- 1. Animation des compteurs d'impact au scroll ---
     const counters = document.querySelectorAll('.counter');
     const speed = 200;
-    counters.forEach(counter => {
-      const updateCount = () => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-        const inc = target / speed;
-        if (count < target) {
-          counter.innerText = target % 1 !== 0 ? (count + inc).toFixed(1) : Math.ceil(count + inc);
-          setTimeout(updateCount, 15);
-        } else {
-          counter.innerText = target;
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const inc = target / speed;
+
+            if (count < target) {
+              counter.innerText = target % 1 !== 0 ? (count + inc).toFixed(1) : Math.ceil(count + inc);
+              setTimeout(updateCount, 15);
+            } else {
+              counter.innerText = target;
+            }
+          };
+          updateCount();
+          observer.unobserve(counter); // Arrête l'observation une fois animé
         }
-      };
-      updateCount();
+      });
+    }, { threshold: 0.3 }); // Déclenche l'animation quand 30% du bloc est visible à l'écran
+
+    counters.forEach(counter => {
+      counter.innerText = '0'; // S'assure que le texte affiche bien 0 au départ
+      counterObserver.observe(counter);
     });
 
-    // --- 2. Storytelling Sticky Images (Nouveau) ---
+    // --- 2. Storytelling Sticky Images (PC uniquement) ---
     const steps = document.querySelectorAll('.story-step');
     const images = document.querySelectorAll('.story-img');
 
-    // Configuration de l'observateur
     const observerOptions = {
       root: null,
-      // Se déclenche quand le bloc de texte atteint le milieu de l'écran
       rootMargin: '-40% 0px -40% 0px', 
       threshold: 0
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const stickyObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // On récupère le numéro de l'étape
           const stepIndex = entry.target.getAttribute('data-step');
-          
-          // On cache toutes les images
           images.forEach(img => img.classList.remove('active'));
-          
-          // On affiche l'image qui correspond à l'étape
           const activeImage = document.getElementById(`img-step-${stepIndex}`);
           if(activeImage) {
             activeImage.classList.add('active');
@@ -377,18 +359,15 @@ description: "Eco Safe installe des grilles de filtration pour avaloirs. Conform
       });
     }, observerOptions);
 
-    // On applique l'observateur à chaque bloc de texte
-    steps.forEach(step => observer.observe(step));
-  });
+    steps.forEach(step => stickyObserver.observe(step));
 
-  // --- 3. Configurateur d'Impact Interactif ---
+    // --- 3. Configurateur d'Impact Interactif ---
     const slider = document.getElementById("avaloirs-slider");
     const output = document.getElementById("slider-output");
     const resDechets = document.getElementById("res-dechets");
     const resEau = document.getElementById("res-eau");
     const btnQuote = document.getElementById("btn-config-quote");
 
-    // Valeurs hypothétiques : 1 grille = 15kg déchets/an et 200m3 eau protégée
     const kgPerGrille = 15;
     const waterPerGrille = 200;
 
@@ -397,18 +376,15 @@ description: "Eco Safe installe des grilles de filtration pour avaloirs. Conform
         const val = this.value;
         output.innerHTML = val;
         
-        // Animation simple des chiffres
         resDechets.innerHTML = (val * kgPerGrille).toLocaleString('fr-FR');
         resEau.innerHTML = (val * waterPerGrille).toLocaleString('fr-FR');
         
         btnQuote.innerHTML = `Obtenir un devis pour ${val} grille${val > 1 ? 's' : ''}`;
         
-        // Mise à jour de la couleur de fond du slider (effet de progression)
         const progress = (this.value - this.min) / (this.max - this.min) * 100;
         this.style.background = `linear-gradient(to right, var(--eco-green) ${progress}%, #e5e5e5 ${progress}%)`;
       }
-      
-      // Initialisation au chargement
       slider.oninput();
     }
+  });
 </script>
