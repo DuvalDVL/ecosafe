@@ -699,7 +699,7 @@ body {
   }
 }
 
-/* --- COMPORTEMENT MOBILE (Look Cartes + Swipe) --- */
+/* --- COMPORTEMENT MOBILE (Swipe - Fix Premier Élément) --- */
 @media (max-width: 992px) {
   .dashboard-impact { padding: 40px 0; }
   
@@ -711,23 +711,42 @@ body {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
+    justify-content: flex-start !important; /* ✅ FORCE LE DÉMARRAGE À GAUCHE */
     overflow-x: auto !important;
     scroll-snap-type: x mandatory !important;
     gap: 15px !important;
-    padding: 10px 20px 30px 20px !important;
+    padding: 10px 24px 30px 24px !important; /* ✅ Ajout de marge à gauche pour le premier compteur */
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
   }
 
-  .stats-grid::-webkit-scrollbar { display: none; }
-
   .stat-card {
     flex: 0 0 85% !important;
-    scroll-snap-align: center;
-    background: var(--bg-light) !important; /* Boîte grise uniquement sur mobile */
+    scroll-snap-align: start !important; /* ✅ ALIGNE LE BORD GAUCHE (Évite de sauter au 2ème) */
+    background: var(--bg-light) !important;
     border-radius: 20px;
     padding: 40px 20px !important;
-    border: 1px solid rgba(0,0,0,0.03) !important;
+  }
+}
+
+/* =========================================
+   HOMEPAGE : STORYTELLING (Correction Centrage CTA)
+   ========================================= */
+
+/* ... (Garder la partie PC intacte) ... */
+
+@media (max-width: 992px) {
+  /* ... (Garder le reste du bloc mobile storytelling identique) ... */
+
+  /* ✅ FORCE LE CENTRAGE DU BOUTON CTA SUR MOBILE */
+  .story-step div:last-child {
+    text-align: center !important;
+    width: 100% !important;
+  }
+  
+  .story-step .btn {
+    margin: 0 auto !important;
+    display: inline-flex !important;
   }
 }
 
