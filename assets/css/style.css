@@ -74,7 +74,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* =========================================
-   HEADER & NAVBAR (CORRIGÉ V3 + Dropdowns)
+   HEADER & NAVBAR (CORRIGÉ V4 - Sans séparateur)
    ========================================= */
 
 body {
@@ -124,7 +124,7 @@ body {
   max-width: none;
 }
 
-/* --- MENU (Centré avec position absolute) --- */
+/* --- MENU (Centré) --- */
 .main-nav {
   position: absolute;
   left: 50%;
@@ -138,7 +138,7 @@ body {
 .main-nav ul {
   display: flex !important;
   align-items: center !important;
-  gap: 40px !important; /* Augmenté pour éviter le chevauchement */
+  gap: 40px !important;
   margin: 0 !important;
   padding: 0 !important;
   list-style: none !important;
@@ -172,21 +172,20 @@ body {
   color: var(--eco-blue);
 }
 
-/* --- DROPDOWNS (Menus déroulants) --- */
+/* --- DROPDOWNS --- */
 .dropdown {
   position: relative;
   height: 100%;
   display: flex;
   align-items: center;
-  pointer-events: none; /* Le container ignore la souris */
+  pointer-events: none;
 }
 
 .dropdown > a {
-  pointer-events: auto; /* Seul le lien capte la souris */
+  pointer-events: auto;
   cursor: pointer;
 }
 
-/* Flèche indicatrice */
 .dropdown > a::after {
   content: "▼";
   font-size: 0.6rem;
@@ -199,7 +198,6 @@ body {
   transform: rotate(180deg);
 }
 
-/* Menu déroulant */
 .dropdown-content {
   position: absolute;
   top: 100%;
@@ -214,7 +212,7 @@ body {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 9999;
   list-style: none;
   margin: 0;
@@ -224,7 +222,6 @@ body {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
 }
 
 .dropdown-content li {
@@ -243,7 +240,6 @@ body {
   text-decoration: none !important;
   transition: background 0.2s ease, color 0.2s ease !important;
   height: auto !important;
-  border-radius: 0 !important;
 }
 
 .dropdown-content li a:hover {
@@ -251,24 +247,24 @@ body {
   color: var(--eco-blue) !important;
 }
 
-/* --- ACTIONS (À droite) --- */
+/* --- ACTIONS (À droite : Instagram, LinkedIn, Bouton) --- */
 .header-actions {
   display: flex !important;
   align-items: center !important;
-  gap: 16px !important; /* Augmenté pour éviter le chevauchement */
+  gap: 15px !important; /* Espace entre les icônes et le bouton */
   flex-shrink: 0;
   z-index: 10;
-  height: 100%; /* Prend toute la hauteur */
 }
 
-/* --- RÉSEAUX SOCIAUX --- */
+/* --- RÉSEAUX SOCIAUX (SANS séparateur) --- */
 .header-social {
   display: flex !important;
   align-items: center !important;
-  gap: 8px !important;
+  gap: 10px !important; /* Espace entre Instagram et LinkedIn */
   padding: 0 !important;
   margin: 0 !important;
-  height: 100%; /* Prend toute la hauteur */
+  border: none !important; /* ✅ SUPPRIME le séparateur */
+  border-right: none !important; /* ✅ FORCE la suppression */
 }
 
 .header-social a {
@@ -280,11 +276,11 @@ body {
   text-decoration: none !important;
   margin: 0 !important;
   padding: 0 !important;
-  height: 100%; /* Centrage vertical parfait */
 }
 
 .header-social a:hover {
   color: var(--eco-blue);
+  transform: translateY(-2px);
 }
 
 .header-social svg {
@@ -293,12 +289,12 @@ body {
   display: block !important;
 }
 
-/* --- BOUTON CTA (Alignement vertical parfait) --- */
+/* --- BOUTON CTA --- */
 .btn.btn-small {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 11px 26px !important; /* Légèrement réduit */
+  padding: 11px 26px !important;
   font-size: 0.95rem !important;
   font-weight: 700 !important;
   background: var(--eco-blue) !important;
@@ -310,8 +306,6 @@ body {
   text-decoration: none !important;
   margin: 0 !important;
   line-height: 1 !important;
-  height: auto !important; /* Auto pour s'adapter au padding */
-  align-self: center; /* Centrage vertical dans le flex parent */
 }
 
 .btn.btn-small:hover {
