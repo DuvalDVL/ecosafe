@@ -1427,90 +1427,124 @@ body {
 }
 
 /* =========================================
-   HOMEPAGE : GESTION DES SCROLLS & CARROUSELS
+   HOMEPAGE : STORYTELLING (Correction Finale)
    ========================================= */
 
-/* --- RESET & SECURITÉ --- */
-body { overflow-x: clip; }
-.mobile-story-img { display: none; } /* Caché par défaut */
+/* --- RESET SECURITÉ --- */
+.mobile-story-img { display: none; }
 
-/* =========================================
-   A. VERSION PC (Min-width: 993px)
-   ========================================= */
+/* -----------------------------------------
+   A. VERSION PC (Écrans > 992px)
+   ----------------------------------------- */
 @media (min-width: 993px) {
-  .story-tunnel { background: var(--bg-light); padding: 80px 0; }
-  .story-container { display: flex; gap: 60px; position: relative; align-items: flex-start; }
-  .story-visuals {
-    flex: 1; position: sticky; top: calc(var(--nav-height) + 40px); height: 70vh;
-    border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  .story-tunnel { background: var(--bg-light); padding: 100px 0; }
+  
+  .story-container { 
+    display: flex !important; 
+    gap: 80px !important; 
+    align-items: flex-start !important; 
+    max-width: 1200px;
+    margin: 0 auto;
   }
+
+  .story-visuals {
+    display: block !important;
+    flex: 1 !important; 
+    position: sticky !important; 
+    top: 120px !important; 
+    height: 60vh !important;
+    border-radius: 24px; 
+    overflow: hidden; 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  }
+
   .story-img {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;
-    opacity: 0; transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0; transition: opacity 0.6s ease-in-out;
   }
   .story-img.active { opacity: 1; z-index: 2; }
-  .story-content { flex: 1; padding-bottom: 30vh; display: block; }
+
+  .story-content-wrapper { flex: 1 !important; }
+  
+  .story-content { 
+    display: block !important; 
+    padding-bottom: 20vh !important; 
+  }
+
   .story-step {
-    min-height: 80vh; display: flex; flex-direction: column; justify-content: center;
-    background: transparent !important; box-shadow: none !important; padding: 0 !important;
+    min-height: 70vh !important; 
+    display: flex !important; 
+    flex-direction: column !important; 
+    justify-content: center !important;
+    background: transparent !important; 
+    box-shadow: none !important; 
+    padding: 0 !important;
   }
 }
 
-/* =========================================
-   B. VERSION MOBILE (Max-width: 992px)
-   ========================================= */
+/* -----------------------------------------
+   B. VERSION MOBILE (Écrans <= 992px)
+   ----------------------------------------- */
 @media (max-width: 992px) {
-  
-  /* 1. COMPTEURS D'IMPACT (Swipe Horizontal) */
-  .dashboard-impact .container { padding: 0 10px !important; } /* Marges minimales */
-  .stats-grid {
-    display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important;
-    overflow-x: auto !important; scroll-snap-type: x mandatory !important;
-    gap: 10px !important; padding: 20px 5px !important;
-    scrollbar-width: none; overscroll-behavior-x: contain;
-  }
-  .stat-card {
-    flex: 0 0 95% !important; /* LARGEUR QUASI-TOTALE */
-    scroll-snap-align: center; background: var(--bg-light); border-radius: 16px;
-    padding: 30px 20px !important;
-  }
+  .story-tunnel { padding: 50px 0 !important; overflow: hidden; }
+  .story-container { padding: 0 !important; width: 100% !important; max-width: 100% !important; }
+  .story-visuals { display: none !important; }
 
-  /* 2. STORYTELLING (Cartes & Flèches) */
-  .story-tunnel { padding: 40px 0 !important; }
-  .story-container { padding: 0 !important; } /* Supprime les marges du container pour largeur max */
-  .story-visuals { display: none !important; } /* Cache le bloc image PC */
-  
-  .story-content-wrapper { position: relative; width: 100%; overflow: hidden; }
-  
+  .story-content-wrapper { position: relative; width: 100%; }
+
   .story-content {
-    display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important;
-    overflow-x: auto !important; scroll-snap-type: x mandatory !important;
-    gap: 10px !important; padding: 20px 10px 40px 10px !important;
-    scrollbar-width: none; overscroll-behavior-x: contain;
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 0px !important; /* On colle les cartes */
+    padding: 0 !important;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
   }
+  .story-content::-webkit-scrollbar { display: none; }
 
   .story-step {
-    flex: 0 0 95% !important; /* LARGEUR QUASI-TOTALE */
-    scroll-snap-align: center; background: var(--bg-white) !important;
-    padding: 25px 20px !important; border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.06); min-height: auto !important;
+    flex: 0 0 100% !important; /* Largeur totale */
+    scroll-snap-align: center;
+    padding: 30px 25px !important;
+    background: var(--bg-white) !important;
+    box-sizing: border-box;
+    min-height: auto !important;
   }
 
   .mobile-story-img {
-    display: block !important; width: 100%; height: 200px; object-fit: cover;
-    border-radius: 12px; margin-bottom: 20px;
+    display: block !important;
+    width: 100%; height: 220px; object-fit: cover;
+    border-radius: 16px; margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
   }
 
-  /* FLÈCHES POSITIONNÉES SUR LES BORDS */
+  /* FLÈCHES AVEC ICÔNES FORCÉES */
   .carousel-arrows {
-    display: flex !important; justify-content: space-between !important;
-    position: absolute !important; top: 50%; left: 0; right: 0;
-    width: 100%; padding: 0 5px; pointer-events: none; z-index: 100;
+    display: flex !important;
+    justify-content: space-between !important;
+    position: absolute !important;
+    top: 50%; width: 100%; left: 0;
+    padding: 0 10px;
+    pointer-events: none; z-index: 100;
+    box-sizing: border-box;
   }
+
   .carousel-arrow {
-    pointer-events: auto; background: var(--eco-blue) !important; color: white !important;
-    border: none; border-radius: 50%; width: 42px; height: 42px;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    pointer-events: auto;
+    background: var(--eco-blue) !important;
+    border: none; border-radius: 50%;
+    width: 46px; height: 46px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  .carousel-arrow svg {
+    width: 24px !important;
+    height: 24px !important;
+    stroke: #ffffff !important; /* Force la couleur blanche de l'icône */
+    display: block !important;
   }
 }
