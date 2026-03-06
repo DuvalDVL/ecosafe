@@ -1455,9 +1455,8 @@ body {
   padding-bottom: 30vh; display: block;
 }
 .story-step {
-  min-height: 80vh; /* Force le scroll sur PC */
+  min-height: 80vh; 
   display: flex; flex-direction: column; justify-content: center;
-  /* Annule tout aspect "carte" sur PC */
   background: transparent; box-shadow: none; padding: 0; border-radius: 0;
 }
 
@@ -1476,7 +1475,7 @@ body {
   }
   .stats-grid::-webkit-scrollbar { display: none; }
   .stat-card {
-    flex: 0 0 65%; /* Moins large pour voir la suivante */
+    flex: 0 0 65%; 
     scroll-snap-align: center; background: var(--bg-light); border-radius: 20px;
     padding: 30px 20px !important; border: 1px solid rgba(0,0,0,0.03);
   }
@@ -1489,21 +1488,23 @@ body {
   .story-content-wrapper { width: 100%; padding-bottom: 0; position: relative; }
   
   .story-content {
-    display: flex; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden;
+    display: flex !important; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden;
     scroll-snap-type: x mandatory; gap: 15px; padding: 10px 20px 40px 20px;
     -ms-overflow-style: none; scrollbar-width: none; overscroll-behavior-x: contain;
   }
   .story-content::-webkit-scrollbar { display: none; }
 
   .story-step {
-    flex: 0 0 75%; /* On met 75% pour laisser 25% de marge pour voir la carte d'après */
+    flex: 0 0 70% !important; /* <-- CARTES PLUS FINES (70%) */
     scroll-snap-align: center;
     background: var(--bg-white);
     padding: 25px 20px;
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-    min-height: auto; /* Supprime le 80vh du PC */
-    justify-content: flex-start;
+    min-height: auto !important; 
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
   }
 
   .mobile-story-img {
@@ -1513,13 +1514,13 @@ body {
 
   /* Flèches de navigation */
   .carousel-arrows {
+    display: flex !important; /* <-- FORCE LE RANGEMENT CÔTE À CÔTE */
+    justify-content: space-between !important; /* <-- FLÈCHE GAUCHE ET DROITE */
     position: absolute;
     top: 50%; left: 0; right: 0;
     transform: translateY(-50%);
-    display: flex;
-    justify-content: space-between; /* Une à gauche, une à droite de l'écran */
     width: 100%;
-    padding: 0 10px; /* Décale les flèches pour ne pas qu'elles collent au bord absolu */
+    padding: 0 5px; 
     pointer-events: none;
     z-index: 10;
     box-sizing: border-box;
