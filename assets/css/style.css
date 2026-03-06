@@ -1427,107 +1427,90 @@ body {
 }
 
 /* =========================================
-   HOMEPAGE : STORYTELLING & CARROUSELS
+   HOMEPAGE : GESTION DES SCROLLS & CARROUSELS
    ========================================= */
 
-/* --- 1. PC : ÉTAT FINAL VALIDÉ --- */
-.story-tunnel { background: var(--bg-light); padding: 80px 0; }
-.story-container { display: flex; gap: 60px; position: relative; align-items: flex-start; }
-.story-visuals {
-  flex: 1; position: sticky; top: calc(var(--nav-height) + 40px); height: 70vh;
-  border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-}
-.story-img {
-  position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;
-  opacity: 0; transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.story-img.active { opacity: 1; z-index: 2; }
-.story-content { padding-bottom: 30vh; display: block; }
-.story-step {
-  min-height: 80vh; display: flex; flex-direction: column; justify-content: center;
-  background: transparent; box-shadow: none; padding: 0; border-radius: 0;
-}
-.mobile-story-img { display: none; }
+/* --- RESET & SECURITÉ --- */
+body { overflow-x: clip; }
+.mobile-story-img { display: none; } /* Caché par défaut */
 
-/* --- 2. MOBILE : SWIPE & NAVIGATION --- */
+/* =========================================
+   A. VERSION PC (Min-width: 993px)
+   ========================================= */
+@media (min-width: 993px) {
+  .story-tunnel { background: var(--bg-light); padding: 80px 0; }
+  .story-container { display: flex; gap: 60px; position: relative; align-items: flex-start; }
+  .story-visuals {
+    flex: 1; position: sticky; top: calc(var(--nav-height) + 40px); height: 70vh;
+    border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  }
+  .story-img {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;
+    opacity: 0; transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .story-img.active { opacity: 1; z-index: 2; }
+  .story-content { flex: 1; padding-bottom: 30vh; display: block; }
+  .story-step {
+    min-height: 80vh; display: flex; flex-direction: column; justify-content: center;
+    background: transparent !important; box-shadow: none !important; padding: 0 !important;
+  }
+}
+
+/* =========================================
+   B. VERSION MOBILE (Max-width: 992px)
+   ========================================= */
 @media (max-width: 992px) {
-  /* Correction des compteurs (Swipe horizontal restauré) */
+  
+  /* 1. COMPTEURS D'IMPACT (Swipe Horizontal) */
+  .dashboard-impact .container { padding: 0 10px !important; } /* Marges minimales */
   .stats-grid {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory !important;
-    gap: 15px !important;
-    padding: 20px !important;
-    overscroll-behavior-x: contain;
-    -webkit-overflow-scrolling: touch;
+    display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important;
+    overflow-x: auto !important; scroll-snap-type: x mandatory !important;
+    gap: 10px !important; padding: 20px 5px !important;
+    scrollbar-width: none; overscroll-behavior-x: contain;
   }
   .stat-card {
-    flex: 0 0 75% !important;
-    scroll-snap-align: center;
-    background: var(--bg-light);
-    border-radius: 20px;
+    flex: 0 0 95% !important; /* LARGEUR QUASI-TOTALE */
+    scroll-snap-align: center; background: var(--bg-light); border-radius: 16px;
+    padding: 30px 20px !important;
   }
 
-  /* Correction Storytelling (Cartes larges & flèches sur les bords) */
-  .story-visuals { display: none !important; }
-  .story-content-wrapper { position: relative; width: 100%; }
+  /* 2. STORYTELLING (Cartes & Flèches) */
+  .story-tunnel { padding: 40px 0 !important; }
+  .story-container { padding: 0 !important; } /* Supprime les marges du container pour largeur max */
+  .story-visuals { display: none !important; } /* Cache le bloc image PC */
+  
+  .story-content-wrapper { position: relative; width: 100%; overflow: hidden; }
   
   .story-content {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory !important;
-    gap: 10px !important;
-    padding: 10px 15px 40px 15px !important;
-    overscroll-behavior-x: contain;
+    display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important;
+    overflow-x: auto !important; scroll-snap-type: x mandatory !important;
+    gap: 10px !important; padding: 20px 10px 40px 10px !important;
+    scrollbar-width: none; overscroll-behavior-x: contain;
   }
 
   .story-step {
-    flex: 0 0 92% !important; /* Largeur quasi-totale demandée */
-    scroll-snap-align: center;
-    background: var(--bg-white) !important;
-    padding: 25px 20px !important;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-    min-height: auto !important;
+    flex: 0 0 95% !important; /* LARGEUR QUASI-TOTALE */
+    scroll-snap-align: center; background: var(--bg-white) !important;
+    padding: 25px 20px !important; border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06); min-height: auto !important;
   }
 
   .mobile-story-img {
-    display: block !important;
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 20px;
+    display: block !important; width: 100%; height: 200px; object-fit: cover;
+    border-radius: 12px; margin-bottom: 20px;
   }
 
-  /* Flèches décalées aux extrémités pour ne pas gêner la lecture */
+  /* FLÈCHES POSITIONNÉES SUR LES BORDS */
   .carousel-arrows {
-    display: flex !important;
-    justify-content: space-between !important;
-    position: absolute !important;
-    top: 50% !important;
-    left: -10px !important; /* Sort un peu du container pour être sur les bords de l'écran */
-    right: -10px !important;
-    width: calc(100% + 20px) !important;
-    pointer-events: none;
-    z-index: 100;
+    display: flex !important; justify-content: space-between !important;
+    position: absolute !important; top: 50%; left: 0; right: 0;
+    width: 100%; padding: 0 5px; pointer-events: none; z-index: 100;
   }
-
   .carousel-arrow {
-    pointer-events: auto;
-    background: var(--eco-blue) !important;
-    color: white !important;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    pointer-events: auto; background: var(--eco-blue) !important; color: white !important;
+    border: none; border-radius: 50%; width: 42px; height: 42px;
+    display: flex; align-items: center; justify-content: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   }
 }
