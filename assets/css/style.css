@@ -1430,150 +1430,104 @@ body {
    HOMEPAGE : STORYTELLING & CARROUSELS
    ========================================= */
 
-/* --- 1. PC : RESTAURATION TOTALE (VERTICAL & STICKY) --- */
-.story-tunnel {
-  background: var(--bg-light);
-  padding: 80px 0;
-}
-
-.story-container {
-  display: flex !important;
-  gap: 60px !important;
-  position: relative !important;
-  align-items: flex-start !important;
-}
-
+/* --- 1. PC : ÉTAT FINAL VALIDÉ --- */
+.story-tunnel { background: var(--bg-light); padding: 80px 0; }
+.story-container { display: flex; gap: 60px; position: relative; align-items: flex-start; }
 .story-visuals {
-  flex: 1 !important;
-  position: sticky !important;
-  top: calc(var(--nav-height) + 40px) !important;
-  height: 70vh !important;
-  border-radius: 24px !important;
-  overflow: hidden !important;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08) !important;
-  display: block !important; /* Assure la visibilité sur PC */
+  flex: 1; position: sticky; top: calc(var(--nav-height) + 40px); height: 70vh;
+  border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
-
 .story-img {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  opacity: 0;
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.story-img.active {
-  opacity: 1 !important;
-  z-index: 2 !important;
-}
-
-.story-content-wrapper {
-  flex: 1 !important;
-  position: relative !important;
-}
-
-.story-content {
-  padding-bottom: 30vh !important;
-  display: block !important; /* Force le flux vertical sur PC */
-}
-
+.story-img.active { opacity: 1; z-index: 2; }
+.story-content { padding-bottom: 30vh; display: block; }
 .story-step {
-  min-height: 80vh !important; /* Espace nécessaire pour le scroll PC */
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  /* RESET DES STYLES DE CARTES SUR PC */
-  background: transparent !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  border-radius: 0 !important;
-  width: 100% !important;
+  min-height: 80vh; display: flex; flex-direction: column; justify-content: center;
+  background: transparent; box-shadow: none; padding: 0; border-radius: 0;
 }
+.mobile-story-img { display: none; }
 
-.mobile-story-img {
-  display: none !important; /* Caché sur PC */
-}
-
-
-/* --- 2. MOBILE : CARROUSEL LARGE & FLÈCHES FIXES --- */
+/* --- 2. MOBILE : SWIPE & NAVIGATION --- */
 @media (max-width: 992px) {
-  
-  .story-tunnel {
-    padding: 40px 0 !important;
-  }
-
-  .story-visuals {
-    display: none !important; /* Cache le sticky PC sur mobile */
-  }
-
-  .story-content-wrapper {
-    width: 100% !important;
-    padding-bottom: 0 !important;
-    position: relative !important;
-  }
-
-  .story-content {
-    display: flex !important; /* Active le carrousel horizontal */
+  /* Correction des compteurs (Swipe horizontal restauré) */
+  .stats-grid {
+    display: flex !important;
+    flex-direction: row !important;
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
-    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 15px !important;
+    padding: 20px !important;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  .stat-card {
+    flex: 0 0 75% !important;
+    scroll-snap-align: center;
+    background: var(--bg-light);
+    border-radius: 20px;
+  }
+
+  /* Correction Storytelling (Cartes larges & flèches sur les bords) */
+  .story-visuals { display: none !important; }
+  .story-content-wrapper { position: relative; width: 100%; }
+  
+  .story-content {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
     scroll-snap-type: x mandatory !important;
     gap: 10px !important;
     padding: 10px 15px 40px 15px !important;
-    scrollbar-width: none !important;
-    overscroll-behavior-x: contain !important;
+    overscroll-behavior-x: contain;
   }
 
   .story-step {
-    flex: 0 0 92% !important; /* LARGEUR AUGMENTÉE : Presque tout l'écran */
-    scroll-snap-align: center !important;
-    min-height: auto !important;
-    /* RÉTABLISSEMENT DES STYLES DE CARTES SUR MOBILE */
+    flex: 0 0 92% !important; /* Largeur quasi-totale demandée */
+    scroll-snap-align: center;
     background: var(--bg-white) !important;
     padding: 25px 20px !important;
-    border-radius: 20px !important;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.06) !important;
-    display: flex !important;
-    justify-content: flex-start !important;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    min-height: auto !important;
   }
 
   .mobile-story-img {
     display: block !important;
-    width: 100% !important;
-    height: 220px !important;
-    object-ratio: 16/9;
-    object-fit: cover !important;
-    border-radius: 12px !important;
-    margin-bottom: 20px !important;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
   }
 
-  /* Flèches de navigation mobile */
+  /* Flèches décalées aux extrémités pour ne pas gêner la lecture */
   .carousel-arrows {
     display: flex !important;
     justify-content: space-between !important;
     position: absolute !important;
-    top: 55% !important; /* Ajusté pour être centré sur le contenu */
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    padding: 0 5px !important;
-    pointer-events: none !important;
-    z-index: 10 !important;
+    top: 50% !important;
+    left: -10px !important; /* Sort un peu du container pour être sur les bords de l'écran */
+    right: -10px !important;
+    width: calc(100% + 20px) !important;
+    pointer-events: none;
+    z-index: 100;
   }
 
   .carousel-arrow {
-    pointer-events: auto !important;
+    pointer-events: auto;
     background: var(--eco-blue) !important;
     color: white !important;
-    border-radius: 50% !important;
-    width: 44px !important;
-    height: 44px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    box-shadow: 0 4px 12px rgba(0, 48, 96, 0.4) !important;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   }
 }
