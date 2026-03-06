@@ -627,7 +627,7 @@ body {
 }
 
 /* =========================================
-   HOMEPAGE : DASHBOARD IMPACT (Version Finale)
+   HOMEPAGE : DASHBOARD IMPACT (Version Finale Corrigée)
    ========================================= */
 
 .dashboard-impact {
@@ -635,24 +635,41 @@ body {
   background: var(--bg-white);
 }
 
-/* --- DESIGN DES CARTES (Commun) --- */
+.stats-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- DESIGN DES CARTES --- */
 .stat-card {
-  background: var(--bg-light); /* ✅ On remet le fond gris clair sur PC et Mobile */
-  border-radius: 20px;
-  padding: 40px 20px;
-  border: 1px solid rgba(0,0,0,0.03);
   display: flex !important;
   flex-direction: column !important;
-  align-items: center !important; /* ✅ Centre horizontalement le contenu */
+  align-items: center !important; 
   justify-content: center !important;
-  text-align: center !important; /* ✅ Centre le texte */
+  text-align: center !important; 
+  transition: transform 0.3s ease;
 }
 
 .stat-number-wrap {
   display: flex;
   justify-content: center;
   align-items: baseline;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
+}
+
+.stat-number { 
+  font-size: 3.5rem; /* On remet les grands chiffres d'avant */
+  font-weight: 800; 
+  color: var(--text-main); 
+  letter-spacing: -1px; 
+}
+
+.stat-unit { 
+  font-size: 1.5rem; 
+  font-weight: 800; 
+  color: var(--eco-blue); 
+  margin-left: 2px; 
 }
 
 .stat-label {
@@ -662,27 +679,32 @@ body {
   letter-spacing: 1px;
   color: var(--text-muted);
   font-weight: 600;
-  width: 100%; /* ✅ Assure que le centrage s'applique sur toute la largeur */
+  width: 100%;
+  text-align: center !important;
 }
 
-/* --- COMPORTEMENT PC (Fixe) --- */
+/* --- COMPORTEMENT PC (Look d'origine : pas de boîtes) --- */
 @media (min-width: 993px) {
   .stats-grid {
     display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important; /* ✅ 3 colonnes égales */
-    gap: 30px;
-    max-width: 1200px;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 40px;
+    max-width: 1100px;
     margin: 0 auto;
-    overflow: visible !important;
+  }
+  .stat-card {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
   }
 }
 
-/* --- COMPORTEMENT MOBILE (Swipe) --- */
+/* --- COMPORTEMENT MOBILE (Look Cartes + Swipe) --- */
 @media (max-width: 992px) {
   .dashboard-impact { padding: 40px 0; }
   
   .dashboard-impact .container {
-    padding: 0 !important; /* ✅ Les cartes touchent presque les bords */
+    padding: 0 !important;
   }
 
   .stats-grid {
@@ -694,30 +716,19 @@ body {
     gap: 15px !important;
     padding: 10px 20px 30px 20px !important;
     scrollbar-width: none;
-    -ms-overflow-style: none;
     -webkit-overflow-scrolling: touch;
   }
 
   .stats-grid::-webkit-scrollbar { display: none; }
 
   .stat-card {
-    flex: 0 0 85% !important; /* ✅ Largeur optimale pour voir la suite */
+    flex: 0 0 85% !important;
     scroll-snap-align: center;
+    background: var(--bg-light) !important; /* Boîte grise uniquement sur mobile */
+    border-radius: 20px;
+    padding: 40px 20px !important;
+    border: 1px solid rgba(0,0,0,0.03) !important;
   }
-}
-
-/* =========================================
-   5. RESPONSIVE
-   ========================================= */
-@media (max-width: 768px) {
-  .desktop-only { display: none; }
-  .hero-eco { padding-top: 60px; }
-  .hero-cta-group { flex-direction: column; padding: 0 20px; }
-  .btn { width: 100%; }
-  
-  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 10px; }
-  .stat-card { padding: 10px; }
-  .stat-number { font-size: 2.2rem; }
 }
 
 /* =========================================
