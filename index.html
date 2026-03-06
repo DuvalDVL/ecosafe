@@ -61,43 +61,55 @@ description: "Eco Safe installe des grilles de filtration pour avaloirs. Conform
 <section class="story-tunnel" id="solution">
   <div class="container story-container">
     
-    <div class="story-visuals">
+    <div class="story-visuals desktop-only">
       <img src="{{ site.baseurl }}/assets/img/dechets-avaloir-pollution.webp?q=80&w=1000&auto=format&fit=crop" alt="Avaloir pollué par des mégots" class="story-img active" id="img-step-1">
       <img src="{{ site.baseurl }}/assets/img/installation-grille-anti-pollution.webp?q=80&w=1000&auto=format&fit=crop" alt="Grille Eco Safe installée" class="story-img" id="img-step-2">
       <img src="{{ site.baseurl }}/assets/img/filtration-panier-anti-dechets.webp?q=80&w=1000&auto=format&fit=crop" alt="Technologie de filtration" class="story-img" id="img-step-3">
     </div>
 
-    <div class="story-content">
-      
-      <div class="story-step" data-step="1">
-        <img src="{{ site.baseurl }}/assets/img/dechets-avaloir-pollution.webp?q=80&w=600&auto=format&fit=crop" class="mobile-only mobile-story-img" alt="Le constat pollution">
-        <span class="step-label">Le Constat</span>
-        <h2>L'urgence est sous vos pieds.</h2>
-        <p>Chaque jour, des millions de mégots, plastiques et déchets industriels s'engouffrent dans les réseaux pluviaux. Sans barrière physique, ces polluants rejoignent directement nos rivières, nos lacs et nos océans.</p>
-        <p>Pour les communes et les industries, c'est un double risque : une infraction à la loi AGEC et une dégradation visible de leur image.</p>
-      </div>
-
-      <div class="story-step" data-step="2">
-        <img src="{{ site.baseurl }}/assets/img/installation-grille-anti-pollution.webp?q=80&w=600&auto=format&fit=crop" class="mobile-only mobile-story-img" alt="La solution Eco Safe">
-        <span class="step-label">La Solution</span>
-        <h2>La capture à la source.</h2>
-        <p>La grille Eco Safe bloque les macro-déchets tout en garantissant un écoulement parfait de l'eau. Une fois pleine, elle retient les déchets au sec.</p>
-        <p><strong>L'avantage décisif :</strong> Elle s'insère sous la grille d’eaux pluviales de façon pérenne ou mobile. Zéro modification d'infrastructure, zéro travaux lourds.</p>
-      </div>
-
-      <div class="story-step" data-step="3">
-        <img src="{{ site.baseurl }}/assets/img/filtration-panier-anti-dechets.webp?q=80&w=600&auto=format&fit=crop" class="mobile-only mobile-story-img" alt="Les niveaux de filtration">
-        <span class="step-label">L'Adaptabilité</span>
-        <h2>3 Niveaux de filtration.</h2>
-        <ul>
-          <li><strong>Standard :</strong> Captation urbaine classique (feuilles, emballages, mégots).</li>
-          <li><strong>Secteur industriel :</strong> Filtration GPI (Granulés Plastiques Industriels).</li>
-          <li><strong>Secteur sportif :</strong> Spécialisé pour le micro-bille synthétique.</li>
-        </ul>
+    <div class="story-content-wrapper">
+      <div class="story-content" id="story-carousel">
         
-        <div style="margin-top: 40px;">
-          <a href="{{ site.baseurl }}/produit/" class="btn btn-primary">Découvrir les variantes</a>
+        <div class="story-step" data-step="1">
+          <img src="{{ site.baseurl }}/assets/img/dechets-avaloir-pollution.webp?q=80&w=600&auto=format&fit=crop" class="mobile-only mobile-story-img" alt="Le constat pollution">
+          <span class="step-label">Le Constat</span>
+          <h2>L'urgence est sous vos pieds.</h2>
+          <p>Chaque jour, des millions de mégots, plastiques et déchets industriels s'engouffrent dans les réseaux pluviaux. Sans barrière physique, ces polluants rejoignent directement nos rivières, nos lacs et nos océans.</p>
+          <p>Pour les communes et les industries, c'est un double risque : une infraction à la loi AGEC et une dégradation visible de leur image.</p>
         </div>
+
+        <div class="story-step" data-step="2">
+          <img src="{{ site.baseurl }}/assets/img/installation-grille-anti-pollution.webp?q=80&w=600&auto=format&fit=crop" class="mobile-only mobile-story-img" alt="La solution Eco Safe">
+          <span class="step-label">La Solution</span>
+          <h2>La capture à la source.</h2>
+          <p>La grille Eco Safe bloque les macro-déchets tout en garantissant un écoulement parfait de l'eau. Une fois pleine, elle retient les déchets au sec.</p>
+          <p><strong>L'avantage décisif :</strong> Elle s'insère sous la grille d’eaux pluviales de façon pérenne ou mobile. Zéro modification d'infrastructure, zéro travaux lourds.</p>
+        </div>
+
+        <div class="story-step" data-step="3">
+          <img src="{{ site.baseurl }}/assets/img/filtration-panier-anti-dechets.webp?q=80&w=600&auto=format&fit=crop" class="mobile-only mobile-story-img" alt="Les niveaux de filtration">
+          <span class="step-label">L'Adaptabilité</span>
+          <h2>3 Niveaux de filtration.</h2>
+          <ul>
+            <li><strong>Standard :</strong> Captation urbaine classique (feuilles, emballages, mégots).</li>
+            <li><strong>Secteur industriel :</strong> Filtration GPI (Granulés Plastiques Industriels).</li>
+            <li><strong>Secteur sportif :</strong> Spécialisé pour le micro-bille synthétique.</li>
+          </ul>
+          
+          <div style="margin-top: 40px;">
+            <a href="{{ site.baseurl }}/produit/" class="btn btn-primary">Découvrir les variantes</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="carousel-arrows mobile-only">
+        <button class="carousel-arrow prev" id="story-prev" aria-label="Précédent" style="display: none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="carousel-arrow next" id="story-next" aria-label="Suivant">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
       </div>
 
     </div>
