@@ -1,41 +1,35 @@
 <header class="site-header">
   <div class="container header-flex">
-    <!-- LOGO -->
     <a href="{{ site.baseurl }}/" class="logo">
       <img src="{{ site.baseurl }}/assets/img/logo_ecosafe.png" alt="Eco Safe Logo" class="logo-img">
     </a>
     
-    <!-- MENU CENTRÉ (SANS les icônes sociales dedans) -->
     <nav class="main-nav desktop-only">
       <ul>
-        <!-- Dropdown La Solution -->
         <li class="dropdown">
           <a href="{{ site.baseurl }}/produit/">La Solution</a>
           <ul class="dropdown-content">
-            <li><a href="{{ site.baseurl }}/produit/grille-standard/">Grille Standard</a></li>
-            <li><a href="{{ site.baseurl }}/produit/grille-industrielle/">Grille Industrielle</a></li>
-            <li><a href="{{ site.baseurl }}/produit/grille-sportive/">Grille Sportive</a></li>
+            <li><a href="{{ site.baseurl }}/produit/standard-urbain/">Standard Urbain</a></li>
+            <li><a href="{{ site.baseurl }}/produit/industriel/">Secteur Industriel</a></li>
+            <li><a href="{{ site.baseurl }}/produit/complexe-sportif/">Complexes Sportifs</a></li>
           </ul>
         </li>
         
-        <!-- Dropdown Secteurs -->
         <li class="dropdown">
-          <a href="{{ site.baseurl }}/#secteurs">Secteurs</a>
+          <a href="{{ site.baseurl }}/secteurs/">Secteurs</a>
           <ul class="dropdown-content">
             <li><a href="{{ site.baseurl }}/secteurs/collectivites/">Collectivités</a></li>
             <li><a href="{{ site.baseurl }}/secteurs/industries/">Industries</a></li>
-            <li><a href="{{ site.baseurl }}/secteurs/complexes-sportifs/">Complexes Sportifs</a></li>
+            <li><a href="{{ site.baseurl }}/secteurs/complexes-sportifs/">Stades & Sport</a></li>
           </ul>
         </li>
         
-        <!-- Lien simple -->
-        <li><a href="{{ site.baseurl }}/#services">Services</a></li>
+        <li><a href="{{ site.baseurl }}/services/">Services</a></li>
+        <li><a href="{{ site.baseurl }}/notre-mission/">Notre Mission</a></li>
       </ul>
     </nav>
     
-    <!-- ACTIONS À DROITE (Icônes sociales + Bouton) -->
     <div class="header-actions">
-      <!-- Icônes Instagram et LinkedIn -->
       <div class="header-social desktop-only">
         <a href="https://www.instagram.com/eco_safe.fr" target="_blank" rel="noopener noreferrer" aria-label="Instagram Eco Safe">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
@@ -45,38 +39,30 @@
         </a>
       </div>
       
-      <!-- Bouton CTA -->
       <a href="{{ site.baseurl }}/contact/" class="btn btn-primary btn-small">Étude gratuite</a>
     </div>
   </div>
 
-  <!-- Bouton hamburger (visible uniquement sur mobile) -->
-<button class="mobile-menu-toggle mobile-only" aria-label="Menu" id="mobile-toggle">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+  <button class="mobile-menu-toggle mobile-only" aria-label="Menu" id="mobile-toggle">
+    <span></span><span></span><span></span>
+  </button>
 </div>
 
-<!-- Overlay de fermeture -->
 <div class="mobile-overlay" id="mobile-overlay"></div>
 
-<!-- Menu mobile latéral -->
 <nav class="mobile-menu" id="mobile-menu">
   <div class="mobile-nav">
-    <!-- Dropdown La Solution -->
     <div class="mobile-dropdown">
       <a href="{{ site.baseurl }}/produit/">La Solution</a>
       <div class="mobile-dropdown-content">
-        <a href="{{ site.baseurl }}/produit/grille-standard/">Grille Standard</a>
-        <a href="{{ site.baseurl }}/produit/grille-industrielle/">Grille Industrielle</a>
-        <a href="{{ site.baseurl }}/produit/grille-sportive/">Grille Sportive</a>
+        <a href="{{ site.baseurl }}/produit/standard-urbain/">Standard Urbain</a>
+        <a href="{{ site.baseurl }}/produit/industriel/">Secteur Industriel</a>
+        <a href="{{ site.baseurl }}/produit/complexe-sportif/">Complexes Sportifs</a>
       </div>
     </div>
     
-    <!-- Dropdown Secteurs -->
     <div class="mobile-dropdown">
-      <a href="{{ site.baseurl }}/#secteurs">Secteurs</a>
+      <a href="{{ site.baseurl }}/secteurs/">Secteurs</a>
       <div class="mobile-dropdown-content">
         <a href="{{ site.baseurl }}/secteurs/collectivites/">Collectivités</a>
         <a href="{{ site.baseurl }}/secteurs/industries/">Industries</a>
@@ -84,24 +70,17 @@
       </div>
     </div>
     
-    <!-- Lien simple -->
-    <a href="{{ site.baseurl }}/#services">Services</a>
+    <a href="{{ site.baseurl }}/services/">Services</a>
+    <a href="{{ site.baseurl }}/notre-mission/">Notre Mission</a>
   </div>
   
-  <!-- Réseaux sociaux -->
   <div class="mobile-social">
-    <a href="https://www.instagram.com/eco_safe.fr" target="_blank" aria-label="Instagram">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-    </a>
-    <a href="https://linkedin.com/company/ecosafesas/" target="_blank" aria-label="LinkedIn">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-    </a>
+    <a href="https://www.instagram.com/eco_safe.fr" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+    <a href="https://linkedin.com/company/ecosafesas/" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
   </div>
   
-  <!-- Bouton CTA -->
   <div class="mobile-cta">
     <a href="{{ site.baseurl }}/contact/" class="btn btn-primary">Étude gratuite</a>
   </div>
 </nav>
-  
 </header>
