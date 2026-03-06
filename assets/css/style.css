@@ -629,14 +629,36 @@ body {
 /* =========================================
    4. IMPACT DASHBOARD
    ========================================= */
-.dashboard-impact {
-  padding: 50px 0;
-  border-top: 1px solid #f0f0f0;
-  background: var(--bg-white);
-}
-
-.stats-grid { display: flex; justify-content: space-between; gap: 20px; }
-.stat-card { flex: 1; text-align: center; padding: 20px; }
+/* 1. COMPTEURS D'IMPACT (Restauration du Swipe Horizontal) */
+  .dashboard-impact .container { 
+    padding: 0 !important; /* Permet aux cartes de toucher les bords */
+  }
+  
+  .stats-grid {
+    display: flex !important;
+    flex-direction: row !important; /* Force l'alignement horizontal */
+    flex-wrap: nowrap !important; /* Empêche le retour à la ligne */
+    overflow-x: auto !important; /* Active le défilement */
+    scroll-snap-type: x mandatory !important; /* Aimante les cartes */
+    gap: 15px !important;
+    padding: 20px 24px 30px 24px !important;
+    scrollbar-width: none; /* Cache la barre sur Firefox */
+    -ms-overflow-style: none; /* Cache la barre sur IE */
+    -webkit-overflow-scrolling: touch; /* Scroll fluide sur iPhone */
+  }
+  
+  .stats-grid::-webkit-scrollbar { 
+    display: none; /* Cache la barre sur Chrome/Safari */
+  }
+  
+  .stat-card {
+    flex: 0 0 80% !important; /* Largeur de 80% pour laisser voir la suite */
+    scroll-snap-align: center !important;
+    background: var(--bg-light);
+    border-radius: 20px;
+    padding: 30px 20px !important;
+    border: 1px solid rgba(0,0,0,0.03);
+  }
 
 .stat-number-wrap { display: flex; justify-content: center; align-items: baseline; }
 .stat-number { font-size: 3rem; font-weight: 800; color: var(--text-main); letter-spacing: -1px; }
