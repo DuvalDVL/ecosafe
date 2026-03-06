@@ -627,51 +627,86 @@ body {
 }
 
 /* =========================================
-   4. IMPACT DASHBOARD
+   HOMEPAGE : DASHBOARD IMPACT (Compteurs)
    ========================================= */
-/* 1. COMPTEURS D'IMPACT (Restauration du Swipe Horizontal) */
-  .dashboard-impact .container { 
-    padding: 0 !important; /* Permet aux cartes de toucher les bords */
-  }
-  
-  .stats-grid {
-    display: flex !important;
-    flex-direction: row !important; /* Force l'alignement horizontal */
-    flex-wrap: nowrap !important; /* Empêche le retour à la ligne */
-    overflow-x: auto !important; /* Active le défilement */
-    scroll-snap-type: x mandatory !important; /* Aimante les cartes */
-    gap: 15px !important;
-    padding: 20px 24px 30px 24px !important;
-    scrollbar-width: none; /* Cache la barre sur Firefox */
-    -ms-overflow-style: none; /* Cache la barre sur IE */
-    -webkit-overflow-scrolling: touch; /* Scroll fluide sur iPhone */
-  }
-  
-  .stats-grid::-webkit-scrollbar { 
-    display: none; /* Cache la barre sur Chrome/Safari */
-  }
-  
-  .stat-card {
-    flex: 0 0 80% !important; /* Largeur de 80% pour laisser voir la suite */
-    scroll-snap-align: center !important;
-    background: var(--bg-light);
-    border-radius: 20px;
-    padding: 30px 20px !important;
-    border: 1px solid rgba(0,0,0,0.03);
-  }
 
-.stat-number-wrap { display: flex; justify-content: center; align-items: baseline; }
-.stat-number { font-size: 3rem; font-weight: 800; color: var(--text-main); letter-spacing: -1px; }
-.stat-unit { font-size: 1.5rem; font-weight: 800; color: var(--eco-blue); margin-left: 2px; }
+.dashboard-impact {
+  padding: 60px 0;
+  background: var(--bg-white);
+}
+
+/* --- STYLE UNIVERSEL (PC & MOBILE) --- */
+.stat-card {
+  text-align: center !important; /* ✅ FORCE LE CENTRAGE DU TEXTE */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-number-wrap {
+  display: flex;
+  justify-content: center !important; /* ✅ CENTRE LE CHIFFRE + UNITÉ */
+  align-items: baseline;
+  margin-bottom: 10px;
+}
 
 .stat-label {
   display: block;
-  font-size: 0.8rem;
+  width: 100%;
+  text-align: center !important; /* ✅ FORCE LE CENTRAGE DE LA LÉGENDE */
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--text-muted);
   font-weight: 600;
-  margin-top: 5px;
+}
+
+/* --- VERSION PC (Dès 993px) --- */
+@media (min-width: 993px) {
+  .stats-grid {
+    display: flex !important;
+    justify-content: space-around !important; /* ✅ REPARTIT SUR LA LIGNE */
+    overflow: visible !important; /* ✅ DESACTIVE TOUT SCROLL */
+    gap: 30px;
+  }
+  
+  .stat-card {
+    flex: 1;
+  }
+}
+
+/* --- VERSION MOBILE (Jusqu'à 992px) --- */
+@media (max-width: 992px) {
+  .dashboard-impact .container {
+    padding: 0 !important;
+  }
+
+  .stats-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important; /* ✅ ACTIVE LE SWIPE HORIZONTAL */
+    scroll-snap-type: x mandatory !important;
+    gap: 15px !important;
+    padding: 20px 24px 30px 24px !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .stats-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .stat-card {
+    flex: 0 0 80% !important; /* Largeur pour voir la carte suivante */
+    scroll-snap-align: center;
+    background: var(--bg-light);
+    border-radius: 20px;
+    padding: 35px 20px !important;
+    border: 1px solid rgba(0,0,0,0.03);
+  }
 }
 
 /* =========================================
