@@ -117,9 +117,9 @@ body {
 
 .site-header .logo-img {
   position: absolute;
-  top: -10px; /* ✅ Descendu pour ne plus déborder du haut de l'écran */
+  top: 5px; /* ✅ Changé de -10px à 5px pour bien descendre le logo */
   left: 0;
-  height: 100px; /* Taille optimisée pour PC */
+  height: 95px; /* Légère réduction pour un équilibre parfait dans les 90px du header */
   width: auto;
   max-width: none;
 }
@@ -492,35 +492,42 @@ body {
   .desktop-only { display: none !important; }
   .mobile-only { display: block !important; }
   
-  /* ✅ HEADER MOBILE : Centrage du logo */
+  /* ✅ HEADER MOBILE : Centrage mathématique parfait */
   .header-flex {
     padding: 0 20px;
-    justify-content: center !important; /* Centre le contenu principal */
+    justify-content: flex-end !important; /* Pousse le bouton menu à droite */
     position: relative;
+    height: 100%;
   }
   
   .site-header .logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%); /* ✅ Centrage absolu du logo */
-    width: auto;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important; /* ✅ Centre le logo par rapport à l'écran */
+    width: auto !important;
+    margin: 0 !important;
+    z-index: 10;
   }
 
   .site-header .logo-img {
-    top: 5px; /* Ajustement pour mobile */
-    height: 80px;
+    position: relative !important;
+    top: 0 !important; 
+    height: 75px !important; /* Taille ajustée pour smartphone */
+    display: block !important;
   }
 
-  /* ✅ TOGGLE MENU : Poussé à droite */
+  /* ✅ BOUTON MENU : Calé à droite */
   .mobile-menu-toggle {
     display: flex !important;
     position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 20;
   }
   
-  /* Masque les actions de droite (Social/Bouton) sur le header mobile */
+  /* Masque les éléments inutiles du header mobile */
   .header-actions {
     display: none !important;
   }
