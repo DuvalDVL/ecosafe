@@ -104,14 +104,13 @@ description: "Eco Safe installe des grilles de filtration pour avaloirs. Conform
       </div>
 
       <div class="carousel-arrows mobile-only">
-        <button class="carousel-arrow prev" id="story-prev" aria-label="Précédent" style="display: none;">
+        <button class="carousel-arrow prev" id="story-prev" aria-label="Précédent" style="opacity: 0; pointer-events: none;">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
         </button>
         <button class="carousel-arrow next" id="story-next" aria-label="Suivant">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </button>
       </div>
-    </div>
 
   </div>
 </section>
@@ -410,19 +409,23 @@ description: "Eco Safe installe des grilles de filtration pour avaloirs. Conform
 
     if (carousel && prevBtn && nextBtn) {
       const updateArrows = () => {
-        // Cache la flèche "précédent" si on est tout à gauche
+        // Cache la flèche "précédent" de façon invisible si on est tout à gauche
         if (carousel.scrollLeft <= 10) {
-          prevBtn.style.display = 'none';
+          prevBtn.style.opacity = '0';
+          prevBtn.style.pointerEvents = 'none';
         } else {
-          prevBtn.style.display = 'flex';
+          prevBtn.style.opacity = '1';
+          prevBtn.style.pointerEvents = 'auto';
         }
 
-        // Cache la flèche "suivant" si on est tout à droite
+        // Cache la flèche "suivant" de façon invisible si on est tout à droite
         // (largeur totale du défilement - largeur visible)
         if (carousel.scrollLeft >= (carousel.scrollWidth - carousel.clientWidth - 10)) {
-          nextBtn.style.display = 'none';
+          nextBtn.style.opacity = '0';
+          nextBtn.style.pointerEvents = 'none';
         } else {
-          nextBtn.style.display = 'flex';
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
         }
       };
 
@@ -440,6 +443,9 @@ description: "Eco Safe installe des grilles de filtration pour avaloirs. Conform
         const cardWidth = carousel.querySelector('.story-step').offsetWidth + 15;
         carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' });
       });
+
+      // Initialise l'état des flèches au chargement de la page
+      updateArrows();
     }
   });
 </script>
