@@ -74,7 +74,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* =========================================
-   HEADER & NAVBAR (CORRIGÉ V2)
+   HEADER & NAVBAR (CORRIGÉ V3 + Dropdowns)
    ========================================= */
 
 body {
@@ -138,15 +138,20 @@ body {
 .main-nav ul {
   display: flex !important;
   align-items: center !important;
-  gap: 35px !important;
+  gap: 40px !important; /* Augmenté pour éviter le chevauchement */
   margin: 0 !important;
   padding: 0 !important;
   list-style: none !important;
+  height: 100%;
 }
 
-.main-nav li {
+.main-nav > ul > li {
+  display: flex;
+  align-items: center;
+  height: 100%;
   margin: 0 !important;
   padding: 0 !important;
+  position: relative;
 }
 
 .main-nav a {
@@ -156,31 +161,114 @@ body {
   font-size: 0.95rem;
   white-space: nowrap;
   transition: color 0.3s ease;
-  display: block !important;
+  display: flex !important;
+  align-items: center;
   padding: 0 !important;
   margin: 0 !important;
+  height: 100%;
 }
 
 .main-nav a:hover {
   color: var(--eco-blue);
 }
 
-/* --- ACTIONS (À droite : Instagram, LinkedIn, Bouton) --- */
+/* --- DROPDOWNS (Menus déroulants) --- */
+.dropdown {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  pointer-events: none; /* Le container ignore la souris */
+}
+
+.dropdown > a {
+  pointer-events: auto; /* Seul le lien capte la souris */
+  cursor: pointer;
+}
+
+/* Flèche indicatrice */
+.dropdown > a::after {
+  content: "▼";
+  font-size: 0.6rem;
+  margin-left: 6px;
+  color: var(--eco-blue);
+  transition: transform 0.3s ease;
+}
+
+.dropdown:hover > a::after {
+  transform: rotate(180deg);
+}
+
+/* Menu déroulant */
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-white);
+  min-width: 240px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 12px 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
+  list-style: none;
+  margin: 0;
+}
+
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-content li {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-content li a {
+  display: block !important;
+  padding: 12px 24px !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  color: var(--text-main) !important;
+  text-decoration: none !important;
+  transition: background 0.2s ease, color 0.2s ease !important;
+  height: auto !important;
+  border-radius: 0 !important;
+}
+
+.dropdown-content li a:hover {
+  background: rgba(0, 70, 135, 0.05) !important;
+  color: var(--eco-blue) !important;
+}
+
+/* --- ACTIONS (À droite) --- */
 .header-actions {
   display: flex !important;
   align-items: center !important;
-  gap: 12px !important;
+  gap: 16px !important; /* Augmenté pour éviter le chevauchement */
   flex-shrink: 0;
   z-index: 10;
+  height: 100%; /* Prend toute la hauteur */
 }
 
-/* --- RÉSEAUX SOCIAUX (Instagram et LinkedIn très proches) --- */
+/* --- RÉSEAUX SOCIAUX --- */
 .header-social {
   display: flex !important;
   align-items: center !important;
-  gap: 6px !important; /* Espace minimal entre IG et LinkedIn */
+  gap: 8px !important;
   padding: 0 !important;
   margin: 0 !important;
+  height: 100%; /* Prend toute la hauteur */
 }
 
 .header-social a {
@@ -192,6 +280,7 @@ body {
   text-decoration: none !important;
   margin: 0 !important;
   padding: 0 !important;
+  height: 100%; /* Centrage vertical parfait */
 }
 
 .header-social a:hover {
@@ -204,12 +293,12 @@ body {
   display: block !important;
 }
 
-/* --- BOUTON CTA --- */
+/* --- BOUTON CTA (Alignement vertical parfait) --- */
 .btn.btn-small {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 12px 26px !important;
+  padding: 11px 26px !important; /* Légèrement réduit */
   font-size: 0.95rem !important;
   font-weight: 700 !important;
   background: var(--eco-blue) !important;
@@ -221,6 +310,8 @@ body {
   text-decoration: none !important;
   margin: 0 !important;
   line-height: 1 !important;
+  height: auto !important; /* Auto pour s'adapter au padding */
+  align-self: center; /* Centrage vertical dans le flex parent */
 }
 
 .btn.btn-small:hover {
@@ -233,6 +324,15 @@ body {
   .main-nav {
     position: static;
     transform: none;
+  }
+  
+  .dropdown-content {
+    left: 0;
+    transform: none;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    transform: translateY(0);
   }
 }
 
