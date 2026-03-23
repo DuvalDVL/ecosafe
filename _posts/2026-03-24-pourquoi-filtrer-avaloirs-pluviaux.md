@@ -4,7 +4,7 @@ title: "Pourquoi faut-il d'urgence filtrer les avaloirs pluviaux ?"
 description: "Découvrez pourquoi les grilles d'égouts sont la première porte d'entrée de la pollution vers nos océans et comment y remédier facilement."
 ---
 
-Contrairement à une idée très répandue, les avaloirs (ou grilles d'égouts) que nous croisons tous les jours dans nos rues ne sont pas toujours reliés à des stations d'épuration. Dans de très nombreuses communes, **l'eau de pluie est rejetée directement dans le milieu naturel** (rivières, lacs, puis océans) pour éviter de saturer les usines de traitement.
+Contrairement à une idée très répandue, les avaloirs (ou grilles d'égouts) que nous croisons tous les jours dans nos rues ne sont pas toujours reliés à des stations d'épuration. Dans de très nombreuses communes, **l'eau de pluie est rejetée directement dans le milieu naturel** (rivières, lacs, puis océans) afin d'éviter de saturer les usines de traitement.
 
 ## Le trajet invisible du déchet
 
