@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+<section style="padding: 120px 0 60px; background: var(--bg-white);">
+  <div class="container">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <span style="font-size: 0.9rem; color: var(--eco-green); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; display: inline-block;">
+        Publié le {{ page.date | date: "%d/%m/%Y" }}
+      </span>
+      <h1 style="font-size: clamp(2rem, 5vw, 3.5rem); color: var(--eco-blue); line-height: 1.2; margin-bottom: 30px; letter-spacing: -0.02em;">
+        {{ page.title }}
+      </h1>
+      {% if page.description %}
+      <p style="font-size: 1.2rem; color: var(--text-muted); line-height: 1.6;">
+        {{ page.description }}
+      </p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section style="padding: 40px 0 100px; background: var(--bg-white);">
+  <div class="container">
+    <div style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8; color: var(--text-main);" class="post-content">
+      
+      {{ content }}
+
+      <div style="margin-top: 60px; padding-top: 30px; border-top: 1px solid #eee; text-align: center;">
+        <a href="{{ site.baseurl }}/blog/" class="btn btn-primary">← Retour aux articles</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Styles pour le formatage du texte dans les articles Markdown */
+  .post-content h2 { color: var(--eco-blue); margin: 40px 0 20px; font-size: 1.8rem; }
+  .post-content h3 { color: var(--text-main); margin: 30px 0 15px; font-size: 1.4rem; }
+  .post-content p { margin-bottom: 20px; }
+  .post-content ul, .post-content ol { margin-bottom: 20px; padding-left: 20px; }
+  .post-content li { margin-bottom: 10px; }
+  .post-content img { max-width: 100%; height: auto; border-radius: 16px; margin: 30px 0; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+  .post-content blockquote { border-left: 4px solid var(--eco-green); padding-left: 20px; margin: 30px 0; font-style: italic; color: var(--text-muted); }
+</style>
