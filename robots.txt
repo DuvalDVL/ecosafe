@@ -1,9 +1,0 @@
-User-agent: *
-Allow: /
-
-# Désindexer les pages légales et la page d'erreur
-Disallow: /mentions-legales/
-Disallow: /politique-confidentialite/
-Disallow: /404.html
-
-Sitemap: https://eco-safe.fr/sitemap.xml
