@@ -527,9 +527,18 @@ body {
     z-index: 20;
   }
   
-  /* Masque les éléments inutiles du header mobile */
   .header-actions {
+    display: flex !important;
+    background: transparent;
+  }
+  .header-actions .header-social,
+  .header-actions .btn {
     display: none !important;
+  }
+
+  .main-nav {
+    position: static;
+    transform: none;
   }
 
   .main-nav {
