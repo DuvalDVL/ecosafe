@@ -309,15 +309,31 @@ description: "Eco Safe installe des grilles de filtration pour avaloirs. Conform
       </div>
     </div>
   </div>
-  <script>
-  document.querySelector('.eco-form').addEventListener('submit', function() {
+<script>
+  document.querySelector('.eco-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = this;
+    let formSubmitted = false;
+
+    function sendForm() {
+      if (formSubmitted) return;
+      formSubmitted = true;
+      form.submit();
+    }
+
     gtag('event', 'form_submit_contact', {
       'event_category': 'formulaire',
       'event_label': 'contact_eco_safe'
     });
+
     gtag('event', 'conversion', {
-      'send_to': 'AW-18325673130/kneCCJ60ntQcEKqprqJE'
+      'send_to': 'AW-18325673130/kneCCJ60ntQcEKqprqJE',
+      'event_callback': sendForm
     });
+
+    // filet de sécurité si gtag est bloqué ou lent (AdBlock, ITP...)
+    setTimeout(sendForm, 1000);
   });
 </script>
 </section>
