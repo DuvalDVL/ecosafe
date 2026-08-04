@@ -4,12 +4,6 @@ title: La barrière ultime contre les déchets pluviaux
 description: "Eco Safe installe des grilles de filtration pour avaloirs. Conformité loi AGEC et protection des océans pour les collectivités et industries."
 ---
 
-<!-- Event snippet for Formulaire de contact Eco Safe conversion page -->
-<script>
-  gtag('event', 'conversion', {'send_to': 'AW-18325673130/kneCCJ60ntQcEKqprqJE'});
-</script>
-
-
 <section class="hero-eco hero-bg" style="background-image: linear-gradient(rgba(0, 30, 60, 0.3), rgba(0, 30, 60, 0.4)), url('{{ site.baseurl }}/assets/img/hero-bg-grille-3d.jpg');">
   <div class="container">
     
@@ -310,12 +304,22 @@ description: "Eco Safe installe des grilles de filtration pour avaloirs. Conform
             <label for="message">Votre besoin (Nombre d'avaloirs estimés)</label>
             <textarea id="message" name="message" rows="4" required placeholder="Nous souhaitons équiper la zone industrielle..."></textarea>
           </div>
-          <input type="hidden" name="_next" value="https://eco-safe.fr/merci">
           <button type="submit" class="btn btn-primary btn-full">Envoyer ma demande</button>
         </form>
       </div>
     </div>
   </div>
+  <script>
+  document.querySelector('.eco-form').addEventListener('submit', function() {
+    gtag('event', 'form_submit_contact', {
+      'event_category': 'formulaire',
+      'event_label': 'contact_eco_safe'
+    });
+    gtag('event', 'conversion', {
+      'send_to': 'AW-18325673130/kneCCJ60ntQcEKqprqJE'
+    });
+  });
+</script>
 </section>
 
 <script>
