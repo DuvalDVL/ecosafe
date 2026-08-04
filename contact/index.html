@@ -4,11 +4,6 @@ title: Contact & Devis gratuit | Eco Safe
 description: "Contactez l'équipe Eco Safe ou l'un de nos revendeurs régionaux pour une étude gratuite de votre projet de filtration des eaux pluviales."
 ---
 
-<!-- Event snippet for Formulaire de contact Eco Safe conversion page -->
-<script>
-  gtag('event', 'conversion', {'send_to': 'AW-18325673130/kneCCJ60ntQcEKqprqJE'});
-</script>
-
 <section class="hero-eco tech-hero">
   <div class="container text-center">
     <div class="badge-law"><span class="dot"></span> Équipe Réactive</div>
@@ -78,12 +73,22 @@ description: "Contactez l'équipe Eco Safe ou l'un de nos revendeurs régionaux 
       </label>
     </div>
 
-    <input type="hidden" name="_next" value="https://eco-safe.fr/merci">
     <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px;">Envoyer ma demande</button>
   </form>
 </div>
     </div>
   </div>
+  <script>
+  document.querySelector('.eco-form').addEventListener('submit', function() {
+    gtag('event', 'form_submit_contact', {
+      'event_category': 'formulaire',
+      'event_label': 'contact_eco_safe'
+    });
+    gtag('event', 'conversion', {
+      'send_to': 'AW-18325673130/kneCCJ60ntQcEKqprqJE'
+    });
+  });
+</script>
 </section>
 
 <section class="map-section" style="padding-bottom: 80px;">
