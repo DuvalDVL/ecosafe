@@ -5,13 +5,20 @@ description: "Grilles de filtration et séparateurs hydrocarbures pour la gestio
 ---
 
 <section class="hero-eco tech-hero">
-  <div class="container text-center">
-    <div class="badge-law"><span class="dot"></span> Fabrication Française</div>
-    <h1 class="hero-title">Traitement des eaux pluviales<br><span class="text-blue">pour collectivités.</span></h1>
-    <p class="hero-subtitle">
-      Grilles de filtration et séparateurs hydrocarbures pour vos avaloirs pluviaux. Solution universelle, sans travaux, posée en 15 minutes.
-    </p>
-    <a href="#devis" class="btn btn-primary" style="margin-top: 20px; display: inline-block;">Demander un devis gratuit</a>
+  <div class="container">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 50px; align-items: center;">
+      <div>
+        <div class="badge-law"><span class="dot"></span> Fabrication Française</div>
+        <h1 class="hero-title">Traitement des eaux pluviales<br><span class="text-blue">pour collectivités.</span></h1>
+        <p class="hero-subtitle" style="margin-bottom: 25px;">
+          Grilles de filtration et séparateurs hydrocarbures pour vos avaloirs pluviaux. Solution universelle, sans travaux, posée en 15 minutes.
+        </p>
+        <a href="#devis" class="btn btn-primary" style="display: inline-block;">Demander un devis gratuit</a>
+      </div>
+      <div>
+        <img src="/assets/img/hero-bg-grille-3d.jpg" alt="Grille de filtration eaux pluviales Eco Safe" style="width: 100%; height: auto; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+      </div>
+    </div>
   </div>
 </section>
 
@@ -26,7 +33,30 @@ description: "Grilles de filtration et séparateurs hydrocarbures pour la gestio
   </div>
 </section>
 
-<section class="problem-solution" style="padding: 80px 0;">
+<section class="proof-section" style="padding: 80px 0;">
+  <div class="container">
+    <div class="section-header text-center" style="margin-bottom: 40px;">
+      <span class="step-label">La preuve par l'image</span>
+      <h2 style="font-size: 2.2rem; color: var(--eco-blue);">Ce que nos grilles interceptent réellement</h2>
+      <p style="color: var(--text-muted); max-width: 700px; margin: 15px auto 0;">
+        Macro-déchets, végétaux, mégots et microplastiques : voici ce que nos systèmes bloquent avant qu'ils n'atteignent le réseau pluvial.
+      </p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+      <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.08);">
+        <img src="/assets/img/IMG_2940.jpg" alt="Déchets et végétaux récupérés dans une grille Eco Safe" style="width: 100%; height: 240px; object-fit: cover; display: block;">
+      </div>
+      <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.08);">
+        <img src="/assets/img/IMG_1320.jpg" alt="Macro-déchets filtrés par une grille anti-pollution Eco Safe" style="width: 100%; height: 240px; object-fit: cover; display: block;">
+      </div>
+      <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.08);">
+        <img src="/assets/img/IMG_3224.jpg" alt="Microplastiques capturés par un filtre Eco Safe" style="width: 100%; height: 240px; object-fit: cover; display: block;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="problem-solution" style="background: var(--bg-light); padding: 80px 0;">
   <div class="container">
     <div class="section-header text-center" style="margin-bottom: 50px;">
       <span class="step-label">Le contexte réglementaire</span>
@@ -37,23 +67,32 @@ description: "Grilles de filtration et séparateurs hydrocarbures pour la gestio
     </div>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
-      <div style="background: white; padding: 30px; border-radius: 20px; border: 1px solid rgba(0,0,0,0.05);">
-        <h3 style="color: var(--eco-blue); margin-bottom: 12px;">Grilles de filtration pour avaloirs</h3>
-        <p style="color: var(--text-muted); font-size: 0.95rem;">Bloquent les polluants et macro-déchets directement à la source, avant qu'ils n'atteignent le réseau pluvial.</p>
+      <div style="background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(0,0,0,0.05);">
+        <img src="/assets/img/IMG_1049.jpg" alt="Grille de filtration installée dans une rue" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+        <div style="padding: 25px;">
+          <h3 style="color: var(--eco-blue); margin-bottom: 12px;">Grilles de filtration pour avaloirs</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Bloquent les polluants et macro-déchets directement à la source, avant qu'ils n'atteignent le réseau pluvial.</p>
+        </div>
       </div>
-      <div style="background: white; padding: 30px; border-radius: 20px; border: 1px solid rgba(0,0,0,0.05);">
-        <h3 style="color: var(--eco-blue); margin-bottom: 12px;">Séparateurs hydrocarbures</h3>
-        <p style="color: var(--text-muted); font-size: 0.95rem;">Retiennent les traces d'hydrocarbures issues de la voirie, des parkings et des zones de stationnement.</p>
+      <div style="background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(0,0,0,0.05);">
+        <img src="/assets/img/filtration-panier-anti-dechets.webp" alt="Panier de filtration anti-déchets Eco Safe neuf" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+        <div style="padding: 25px;">
+          <h3 style="color: var(--eco-blue); margin-bottom: 12px;">Séparateurs hydrocarbures</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Retiennent les traces d'hydrocarbures issues de la voirie, des parkings et des zones de stationnement.</p>
+        </div>
       </div>
-      <div style="background: white; padding: 30px; border-radius: 20px; border: 1px solid rgba(0,0,0,0.05);">
-        <h3 style="color: var(--eco-blue); margin-bottom: 12px;">Gestion simplifiée</h3>
-        <p style="color: var(--text-muted); font-size: 0.95rem;">Installation universelle sur avaloirs existants, sans travaux de voirie ni interruption de service.</p>
+      <div style="background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(0,0,0,0.05);">
+        <img src="/assets/img/IMG_3349.jpg" alt="Grille de filtration installée autour d'un stade de football" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+        <div style="padding: 25px;">
+          <h3 style="color: var(--eco-blue); margin-bottom: 12px;">Adapté aux équipements sportifs</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Nos solutions s'installent aussi bien en voirie qu'autour des complexes sportifs et parkings municipaux.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="how-it-works" style="background: var(--bg-light); padding: 80px 0;">
+<section class="how-it-works" style="padding: 80px 0;">
   <div class="container">
     <div class="section-header text-center" style="margin-bottom: 50px;">
       <span class="step-label">Notre accompagnement</span>
@@ -79,6 +118,27 @@ description: "Grilles de filtration et séparateurs hydrocarbures pour la gestio
         <div style="width: 50px; height: 50px; background: var(--eco-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; margin: 0 auto 15px;">4</div>
         <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Suivi & maintenance</h3>
         <p style="color: var(--text-muted); font-size: 0.9rem;">Notre équipe technique reste disponible après l'installation</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 50px; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08);">
+      <img src="/assets/img/IMG_0888.jpg" alt="Technicien Eco Safe installant une grille de filtration dans une rue" style="width: 100%; max-height: 420px; object-fit: cover; display: block;">
+    </div>
+  </div>
+</section>
+
+<section class="team-section" style="background: var(--bg-light); padding: 80px 0;">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 50px; align-items: center;">
+      <div style="border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+        <img src="/assets/img/equipe-eco-safe.jpg" alt="L'équipe Eco Safe autour d'un filtre installé en pleine rue" style="width: 100%; height: auto; display: block;">
+      </div>
+      <div>
+        <span class="step-label">Notre équipe</span>
+        <h2 style="font-size: 2.2rem; color: var(--eco-blue); margin-bottom: 15px;">Une équipe technique basée en Haute-Savoie</h2>
+        <p style="color: var(--text-muted);">
+          Nos experts vous accompagnent de l'étude de votre projet jusqu'au suivi après installation. Nous travaillons directement avec les collectivités et disposons également d'un réseau de revendeurs agréés partout en France et en Europe frontalière.
+        </p>
       </div>
     </div>
   </div>
