@@ -11,7 +11,7 @@ description: "Grilles de filtration et séparateurs hydrocarbures pour la gestio
         <div class="badge-law"><span class="dot"></span> Fabrication Française</div>
         <h1 class="hero-title">Traitement des eaux pluviales<br><span class="text-blue">pour collectivités.</span></h1>
         <p class="hero-subtitle" style="margin-bottom: 25px;">
-          Grilles de filtration et séparateurs hydrocarbures pour vos avaloirs pluviaux. Solution universelle, sans travaux, posée en 15 minutes.
+          Grilles de filtration et séparateurs hydrocarbures pour vos avaloirs pluviaux. Solution universelle, posée en 15 minutes.
         </p>
         <a href="#devis" class="btn btn-primary" style="display: inline-block;">Demander un devis gratuit</a>
       </div>
@@ -25,7 +25,7 @@ description: "Grilles de filtration et séparateurs hydrocarbures pour la gestio
 <section class="trust-bar" style="padding: 30px 0; background: var(--bg-light); border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
   <div class="container">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
-      <div><strong style="color: var(--eco-blue);">100% Français</strong><br><span style="color: var(--text-muted); font-size: 0.9rem;">Conçu et fabriqué en Haute-Savoie</span></div>
+      <div><strong style="color: var(--eco-blue);">100% Français</strong><br><span style="color: var(--text-muted); font-size: 0.9rem;">Conçu et fabriqué en France</span></div>
       <div><strong style="color: var(--eco-blue);">15 minutes</strong><br><span style="color: var(--text-muted); font-size: 0.9rem;">Installation sans perçage ni travaux</span></div>
       <div><strong style="color: var(--eco-blue);">48h</strong><br><span style="color: var(--text-muted); font-size: 0.9rem;">Réponse à votre demande de devis</span></div>
       <div><strong style="color: var(--eco-blue);">Sans engagement</strong><br><span style="color: var(--text-muted); font-size: 0.9rem;">Étude personnalisée offerte</span></div>
@@ -62,7 +62,7 @@ description: "Grilles de filtration et séparateurs hydrocarbures pour la gestio
       <span class="step-label">Le contexte réglementaire</span>
       <h2 style="font-size: 2.2rem; color: var(--eco-blue);">Vos réseaux pluviaux sont-ils conformes ?</h2>
       <p style="color: var(--text-muted); max-width: 700px; margin: 20px auto 0;">
-        Les collectivités sont de plus en plus soumises à des exigences de traitement des eaux pluviales avant rejet au milieu naturel : hydrocarbures, macro-déchets, particules polluantes issues de la voirie, des parkings ou des zones d'activité.
+        Les collectivités sont de plus en plus soumises à des exigences de traitement des eaux pluviales avant rejet au milieu naturel : micro-plastique, macro-déchets, particules polluantes issues de la voirie, des parkings ou des zones d'activité.
       </p>
     </div>
 
@@ -78,7 +78,7 @@ description: "Grilles de filtration et séparateurs hydrocarbures pour la gestio
         <img src="/assets/img/filtration-panier-anti-dechets.webp" alt="Panier de filtration anti-déchets Eco Safe neuf" style="width: 100%; height: 180px; object-fit: cover; display: block;">
         <div style="padding: 25px;">
           <h3 style="color: var(--eco-blue); margin-bottom: 12px;">Séparateurs hydrocarbures</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">Retiennent les traces d'hydrocarbures issues de la voirie, des parkings et des zones de stationnement.</p>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Retiennent les micro-plastiques issues de la voirie, des parkings et des zones de stationnement.</p>
         </div>
       </div>
       <div style="background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(0,0,0,0.05);">
@@ -112,7 +112,7 @@ description: "Grilles de filtration et séparateurs hydrocarbures pour la gestio
       <div>
         <div style="width: 50px; height: 50px; background: var(--eco-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; margin: 0 auto 15px;">3</div>
         <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Installation en 15 min</h3>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">Pose universelle, sans perçage ni travaux de voirie</p>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Pose universelle, sans travaux de voirie</p>
       </div>
       <div>
         <div style="width: 50px; height: 50px; background: var(--eco-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; margin: 0 auto 15px;">4</div>
@@ -122,7 +122,7 @@ description: "Grilles de filtration et séparateurs hydrocarbures pour la gestio
     </div>
 
     <div style="margin-top: 50px; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08);">
-      <img src="/assets/img/IMG_0888.jpg" alt="Technicien Eco Safe installant une grille de filtration dans une rue" style="width: 100%; max-height: 420px; object-fit: cover; display: block;">
+      <img src="/assets/img/etape-3-serrage.jpg" alt="Technicien Eco Safe installant une grille de filtration dans une rue" style="width: 100%; max-height: 420px; object-fit: cover; display: block;">
     </div>
   </div>
 </section>
@@ -154,15 +154,15 @@ description: "Grilles de filtration et séparateurs hydrocarbures pour la gestio
     <div style="display: flex; flex-direction: column; gap: 15px;">
       <div style="background: white; padding: 25px; border-radius: 16px; border: 1px solid rgba(0,0,0,0.05);">
         <strong style="color: var(--eco-blue); display: block; margin-bottom: 8px;">Faut-il des travaux de voirie pour installer vos grilles ?</strong>
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Non. Nos solutions s'installent directement sur les avaloirs existants, sans perçage ni intervention lourde. Le temps de pose est d'environ 15 minutes par avaloir.</p>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Non. Nos solutions s'installent directement sur les avaloirs existants, sans intervention lourde. Le temps de pose est d'environ 15 minutes par avaloir.</p>
       </div>
       <div style="background: white; padding: 25px; border-radius: 16px; border: 1px solid rgba(0,0,0,0.05);">
         <strong style="color: var(--eco-blue); display: block; margin-bottom: 8px;">Vos produits sont-ils adaptés à toutes les collectivités ?</strong>
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Oui, nos grilles de filtration et séparateurs hydrocarbures s'adaptent aux voiries communales, parkings publics, zones d'activité et espaces sportifs. Chaque projet fait l'objet d'une étude personnalisée gratuite.</p>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Oui, nos grilles de filtration s'adaptent aux voiries communales, parkings publics, zones d'activité et espaces sportifs. Chaque projet fait l'objet d'une étude personnalisée gratuite.</p>
       </div>
       <div style="background: white; padding: 25px; border-radius: 16px; border: 1px solid rgba(0,0,0,0.05);">
         <strong style="color: var(--eco-blue); display: block; margin-bottom: 8px;">Combien de temps pour recevoir un devis ?</strong>
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Notre équipe technique, basée en Haute-Savoie, vous répond sous 48h avec un chiffrage précis et sans engagement.</p>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Notre équipe technique, basée en Haute-Savoie, vous répond sous 48h et sans engagement.</p>
       </div>
       <div style="background: white; padding: 25px; border-radius: 16px; border: 1px solid rgba(0,0,0,0.05);">
         <strong style="color: var(--eco-blue); display: block; margin-bottom: 8px;">Intervenez-vous partout en France ?</strong>
