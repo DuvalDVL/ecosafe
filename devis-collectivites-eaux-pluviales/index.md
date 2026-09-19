@@ -240,6 +240,11 @@ description: "Grilles de filtration et séparateurs hydrocarbures pour la gestio
         'event_callback': sendForm
       });
 
+      gtag('event', 'conversion', {
+        'send_to': 'AW-18325673130/A84cCMGm2P0cEKqprqJE',
+        'event_callback': sendForm
+      });
+
       setTimeout(sendForm, 1000);
     });
   </script>
