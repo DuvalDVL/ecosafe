@@ -26,7 +26,7 @@ description: "Grilles de filtration et séparateurs hydrocarbures pour la gestio
   <div class="container">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
       <div><strong style="color: var(--eco-blue);">100% Français</strong><br><span style="color: var(--text-muted); font-size: 0.9rem;">Conçu et fabriqué en France</span></div>
-      <div><strong style="color: var(--eco-blue);">15 minutes</strong><br><span style="color: var(--text-muted); font-size: 0.9rem;">Installation sans perçage ni travaux</span></div>
+      <div><strong style="color: var(--eco-blue);">15 minutes</strong><br><span style="color: var(--text-muted); font-size: 0.9rem;">Installation universelle</span></div>
       <div><strong style="color: var(--eco-blue);">48h</strong><br><span style="color: var(--text-muted); font-size: 0.9rem;">Réponse à votre demande de devis</span></div>
       <div><strong style="color: var(--eco-blue);">Sans engagement</strong><br><span style="color: var(--text-muted); font-size: 0.9rem;">Étude personnalisée offerte</span></div>
     </div>
