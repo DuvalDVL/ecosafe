@@ -1,0 +1,267 @@
+---
+layout: default
+title: Comparatif sections partenaires | Eco Safe
+description: "Page de comparaison interne des designs de la section partenaires."
+---
+
+<style>
+  .compare-divider {
+    background: #f0f4f8;
+    border-top: 3px dashed #cbd5e0;
+    border-bottom: 3px dashed #cbd5e0;
+    padding: 20px 0;
+    text-align: center;
+  }
+  .compare-divider span {
+    display: inline-block;
+    background: #1a365d;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 20px;
+    border-radius: 20px;
+  }
+
+  /* ── DESIGN A ── */
+  @keyframes scroll-a { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .partners-marquee-a { animation: scroll-a 28s linear infinite; }
+  .partners-marquee-a:hover { animation-play-state: paused; }
+  .plogo-a {
+    filter: grayscale(100%);
+    opacity: 0.55;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+    border-radius: 8px;
+  }
+  .plogo-a:hover { filter: grayscale(0%); opacity: 1; }
+
+  /* ── DESIGN B ── */
+  .pcard-b {
+    background: white;
+    border-radius: 16px;
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  }
+  .pcard-b:hover {
+    border-color: var(--eco-green, #2ecc71);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+  .pcard-b img {
+    height: 52px;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+    filter: grayscale(30%);
+    transition: filter 0.25s ease;
+    border-radius: 6px;
+  }
+  .pcard-b:hover img { filter: grayscale(0%); }
+
+  /* ── DESIGN C ── */
+  .pitem-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+  .pitem-c:hover { opacity: 1; }
+  .pitem-c img {
+    height: 64px;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
+    border-radius: 6px;
+  }
+  .pitem-c:hover img {
+    filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255,255,255,0.5));
+  }
+
+  /* ── DESIGN D ── */
+  @keyframes scroll-d { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .partners-marquee-d {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    width: max-content;
+    animation: scroll-d 20s linear infinite;
+  }
+  .partners-marquee-d:hover { animation-play-state: paused; }
+  .pcircle-d {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  }
+  .pcircle-d:hover {
+    border-color: var(--eco-green, #2ecc71);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+    transform: translateY(-4px);
+  }
+  .pcircle-d img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+</style>
+
+
+<!-- ═══════════════════════════════════════════════
+     INTRO
+════════════════════════════════════════════════ -->
+<section style="padding: 60px 0 40px; background: #f7fafc; text-align: center; border-bottom: 1px solid #e2e8f0;">
+  <div class="container">
+    <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #718096; margin-bottom: 12px;">Document interne – Validation client</p>
+    <h1 style="font-size: 2rem; color: #1a365d; margin-bottom: 16px;">Comparatif : 4 designs pour la section partenaires</h1>
+    <p style="color: #718096; max-width: 560px; margin: 0 auto; font-size: 0.95rem;">Les logos sont remplacés par des placeholders pour cette maquette. Indiquez le design (A, B, C ou D) que vous souhaitez retenir.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     DESIGN A
+════════════════════════════════════════════════ -->
+<div class="compare-divider"><span>Design A — Bandeau défilant / Homepage</span></div>
+
+<section style="padding: 60px 0; background: white; overflow: hidden;">
+  <div class="container text-center" style="margin-bottom: 32px;">
+    <p class="step-label" style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #718096;">Ils nous font confiance</p>
+  </div>
+  <div style="overflow: hidden; position: relative;">
+    <!-- Fondu sur les bords -->
+    <div style="position: absolute; top:0; left:0; width:80px; height:100%; background: linear-gradient(to right, white, transparent); z-index:2; pointer-events:none;"></div>
+    <div style="position: absolute; top:0; right:0; width:80px; height:100%; background: linear-gradient(to left, white, transparent); z-index:2; pointer-events:none;"></div>
+    <div class="partners-marquee-a" style="display: flex; align-items: center; gap: 64px; width: max-content;">
+      <!-- Série 1 -->
+      <img src="https://placehold.co/140x48/e8f4f8/1a365d?text=Sallanches"   alt="Sallanches"   class="plogo-a" style="height:48px; width:auto;">
+      <img src="https://placehold.co/120x48/e8f4f8/1a365d?text=Les+Gets"     alt="Les Gets"     class="plogo-a" style="height:48px; width:auto;">
+      <img src="https://placehold.co/110x48/e8f4f8/1a365d?text=Châtel"       alt="Châtel"       class="plogo-a" style="height:48px; width:auto;">
+      <img src="https://placehold.co/120x48/e8f4f8/1a365d?text=Thonon"       alt="Thonon"       class="plogo-a" style="height:48px; width:auto;">
+      <img src="https://placehold.co/130x48/e8f4f8/1a365d?text=Courchevel"   alt="Courchevel"   class="plogo-a" style="height:48px; width:auto;">
+      <img src="https://placehold.co/100x48/e8f4f8/1a365d?text=VEKA"         alt="VEKA"         class="plogo-a" style="height:48px; width:auto;">
+      <img src="https://placehold.co/150x48/e8f4f8/1a365d?text=System+Group" alt="System Group" class="plogo-a" style="height:48px; width:auto;">
+      <img src="https://placehold.co/120x48/e8f4f8/1a365d?text=FC+Annecy"    alt="FC Annecy"    class="plogo-a" style="height:48px; width:auto;">
+      <!-- Série 2 (clone) -->
+      <img src="https://placehold.co/140x48/e8f4f8/1a365d?text=Sallanches"   alt="Sallanches"   class="plogo-a" style="height:48px; width:auto;">
+      <img src="https://placehold.co/120x48/e8f4f8/1a365d?text=Les+Gets"     alt="Les Gets"     class="plogo-a" style="height:48px; width:auto;">
+      <img src="https://placehold.co/110x48/e8f4f8/1a365d?text=Châtel"       alt="Châtel"       class="plogo-a" style="height:48px; width:auto;">
+      <img src="https://placehold.co/120x48/e8f4f8/1a365d?text=Thonon"       alt="Thonon"       class="plogo-a" style="height:48px; width:auto;">
+      <img src="https://placehold.co/130x48/e8f4f8/1a365d?text=Courchevel"   alt="Courchevel"   class="plogo-a" style="height:48px; width:auto;">
+      <img src="https://placehold.co/100x48/e8f4f8/1a365d?text=VEKA"         alt="VEKA"         class="plogo-a" style="height:48px; width:auto;">
+      <img src="https://placehold.co/150x48/e8f4f8/1a365d?text=System+Group" alt="System Group" class="plogo-a" style="height:48px; width:auto;">
+      <img src="https://placehold.co/120x48/e8f4f8/1a365d?text=FC+Annecy"    alt="FC Annecy"    class="plogo-a" style="height:48px; width:auto;">
+    </div>
+  </div>
+  <p style="text-align:center; font-size: 0.78rem; color: #a0aec0; margin-top: 24px;">Survol = pause · Logos en niveaux de gris → couleur au survol</p>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     DESIGN B
+════════════════════════════════════════════════ -->
+<div class="compare-divider"><span>Design B — Grille cards / Page Collectivités</span></div>
+
+<section style="padding: 80px 0; background: #f7fafc;">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 48px;">
+      <p class="step-label" style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #718096; margin-bottom: 10px;">Collectivités partenaires</p>
+      <h2 style="font-size: 2rem; color: #1a365d;">Ils ont fait confiance à <span style="color: var(--eco-green, #2ecc71);">Eco Safe.</span></h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px;">
+      <div class="pcard-b"><img src="https://placehold.co/120x52/dbeafe/1e40af?text=Sallanches"  alt="Sallanches"></div>
+      <div class="pcard-b"><img src="https://placehold.co/120x52/dbeafe/1e40af?text=Cruseilles"  alt="Cruseilles"></div>
+      <div class="pcard-b"><img src="https://placehold.co/120x52/dbeafe/1e40af?text=Les+Gets"    alt="Les Gets"></div>
+      <div class="pcard-b"><img src="https://placehold.co/120x52/dbeafe/1e40af?text=Châtel"      alt="Châtel"></div>
+      <div class="pcard-b"><img src="https://placehold.co/120x52/dbeafe/1e40af?text=Thonon"      alt="Thonon"></div>
+      <div class="pcard-b"><img src="https://placehold.co/120x52/dbeafe/1e40af?text=Veyrier"     alt="Veyrier-du-Lac"></div>
+      <div class="pcard-b"><img src="https://placehold.co/120x52/dbeafe/1e40af?text=Châteauroux" alt="Châteauroux"></div>
+      <div class="pcard-b"><img src="https://placehold.co/120x52/dbeafe/1e40af?text=Courchevel"  alt="Courchevel"></div>
+      <div class="pcard-b"><img src="https://placehold.co/120x52/dbeafe/1e40af?text=CC+Évian"    alt="CC Pays d'Évian"></div>
+    </div>
+  </div>
+  <p style="text-align:center; font-size: 0.78rem; color: #a0aec0; margin-top: 28px;">Survol = bordure verte · Logos en couleur au survol</p>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     DESIGN C
+════════════════════════════════════════════════ -->
+<div class="compare-divider"><span>Design C — Fond bleu / Page Industriels</span></div>
+
+<section style="padding: 80px 0; background: #1a365d;">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 48px;">
+      <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 10px;">Références industrielles</p>
+      <h2 style="font-size: 2rem; color: white;">Déployé sur leurs <span style="color: var(--eco-green, #2ecc71);">sites.</span></h2>
+    </div>
+    <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 60px;">
+      <div class="pitem-c">
+        <img src="https://placehold.co/180x64/ffffff/1a365d?text=VEKA"              alt="VEKA">
+      </div>
+      <div class="pitem-c">
+        <img src="https://placehold.co/180x64/ffffff/1a365d?text=System+Group"      alt="System Group">
+      </div>
+      <div class="pitem-c">
+        <img src="https://placehold.co/180x64/ffffff/1a365d?text=Gde+Médiévale"     alt="Grande Médiévale d'Andilly">
+      </div>
+    </div>
+  </div>
+  <p style="text-align:center; font-size: 0.78rem; color: rgba(255,255,255,0.35); margin-top: 28px;">Logos en blanc · Survol = lueur blanche</p>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     DESIGN D
+════════════════════════════════════════════════ -->
+<div class="compare-divider"><span>Design D — Cercles animés / Page Sportifs</span></div>
+
+<section style="padding: 80px 0; background: white; overflow: hidden;">
+  <div class="container" style="text-align: center; margin-bottom: 40px;">
+    <p class="step-label" style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #718096; margin-bottom: 10px;">Clubs partenaires</p>
+    <h2 style="font-size: 2rem; color: #1a365d;">Ils protègent <span style="color: var(--eco-green, #2ecc71);">leurs terrains.</span></h2>
+  </div>
+  <div style="overflow: hidden; position: relative;">
+    <div style="position: absolute; top:0; left:0; width:60px; height:100%; background: linear-gradient(to right, white, transparent); z-index:2; pointer-events:none;"></div>
+    <div style="position: absolute; top:0; right:0; width:60px; height:100%; background: linear-gradient(to left, white, transparent); z-index:2; pointer-events:none;"></div>
+    <div class="partners-marquee-d">
+      <!-- Série 1 -->
+      <div class="pcircle-d"><img src="https://placehold.co/72x72/dcfce7/166534?text=FC+Cru"   alt="FC Cruseilles"></div>
+      <div class="pcircle-d"><img src="https://placehold.co/72x72/dcfce7/166534?text=FC+ALV"   alt="FC Annecy-le-Vieux"></div>
+      <div class="pcircle-d"><img src="https://placehold.co/72x72/dcfce7/166534?text=FC+Ann"   alt="FC Annecy"></div>
+      <div class="pcircle-d"><img src="https://placehold.co/72x72/dcfce7/166534?text=FC+Mey"   alt="FC Meythet"></div>
+      <div class="pcircle-d"><img src="https://placehold.co/72x72/dcfce7/166534?text=FC+Sey"   alt="FC Seynod"></div>
+      <!-- Série 2 (clone) -->
+      <div class="pcircle-d"><img src="https://placehold.co/72x72/dcfce7/166534?text=FC+Cru"   alt="FC Cruseilles"></div>
+      <div class="pcircle-d"><img src="https://placehold.co/72x72/dcfce7/166534?text=FC+ALV"   alt="FC Annecy-le-Vieux"></div>
+      <div class="pcircle-d"><img src="https://placehold.co/72x72/dcfce7/166534?text=FC+Ann"   alt="FC Annecy"></div>
+      <div class="pcircle-d"><img src="https://placehold.co/72x72/dcfce7/166534?text=FC+Mey"   alt="FC Meythet"></div>
+      <div class="pcircle-d"><img src="https://placehold.co/72x72/dcfce7/166534?text=FC+Sey"   alt="FC Seynod"></div>
+    </div>
+  </div>
+  <p style="text-align:center; font-size: 0.78rem; color: #a0aec0; margin-top: 28px;">Défilement automatique · Survol = pause + élévation + bordure verte</p>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     PIED DE PAGE COMPARATIF
+════════════════════════════════════════════════ -->
+<section style="padding: 40px 0; background: #f7fafc; border-top: 1px solid #e2e8f0; text-align: center;">
+  <div class="container">
+    <p style="color: #718096; font-size: 0.9rem;">Indiquez le design retenu (A, B, C ou D) — les logos réels seront intégrés dès validation.</p>
+  </div>
+</section>
